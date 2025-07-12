@@ -1,0 +1,80 @@
+`timescale 1ns/1ps
+
+module tb_mips();
+
+    // Sinais para conectar ao DUT (Device Under Test)
+    logic clk, reset;
+    logic [31:0] writedata, dataadr;
+    logic memwrite;
+
+    // Parâmetro para controlar a duração da simulação
+    parameter MAX_CYCLES = 400;
+
+    // Instancia o processador pipelined corrigido
+    mips_pipelined dut (
+        .clk(clk),
+        .reset(reset),
+        .writedata_out(writedata),
+        .dataadr_out(dataadr),
+        .memwrite_out(memwrite)
+    );
+
+    // Geração de clock: período de 10ns
+    always #5 clk = ~clk;
+
+    // Bloco principal da simulação
+    initial begin
+        // --- SETUP ---
+        clk = 0;
+        reset = 1;
+        #15; // Mantém o reset ativo por alguns ciclos
+        reset = 0;
+        #1;
+
+        // --- VERIFICAÇÃO INICIAL ---
+        $display("\n=======================================================");
+        $display("--- Array Inicial na Memória (Endereços 0 a 36) ---");
+        for (int i = 0; i < 10; i++) begin
+            $display("dmem[%2d / 0x%h]: %d", i, i*4, dut.dmem.RAM[i]);
+        end
+        $display("=======================================================\n");
+
+        // --- EXECUÇÃO POR NÚMERO FIXO DE CICLOS ---
+        $display("--- Iniciando a execução do programa de ordenação por %d ciclos ---", MAX_CYCLES);
+        repeat (MAX_CYCLES) @(posedge clk);
+
+        // --- VERIFICAÇÃO FINAL ---
+        $display("\n=======================================================");
+        $display("--- Simulação finalizada após %d ciclos ---", MAX_CYCLES);
+        $display("--- Array Final na Memória (Endereços 0 a 36) ---");
+        for (int i = 0; i < 10; i++) begin
+            $display("dmem[%2d / 0x%h]: %d", i, i*4, dut.dmem.RAM[i]);
+        end
+        $display("=======================================================\n");
+
+        // Adicione aqui uma verificação de sucesso/falha se souber o resultado esperado
+        // Ex: if (dut.dmem.RAM[0] < dut.dmem.RAM[1] && ...)
+
+        $finish;
+    end
+
+    // Bloco de monitoramento de registradores
+    // Exibe o estado dos registradores relevantes para o bubble sort a cada ciclo
+    always @(negedge clk) begin
+        if (!reset) begin
+            // Monitora o PC e os registradores usados pelo programa sort.txt
+            // $s0 (i), $s1 (j), $s2 (v_base), $s3 (n-1), $s4 (temp)
+            // $t3, $t4 (v[j], v[j+1])
+            $display("PC_F=%h | i($s0)=%d, j($s1)=%d | v[j]($t3)=%d, v[j+1]($t4)=%d | ALU_M=%h, MEM_W=%b",
+                dut.pc_f,
+                dut.rf.rf[16], // $s0
+                dut.rf.rf[17], // $s1
+                dut.rf.rf[11], // $t3
+                dut.rf.rf[12], // $t4
+                dut.aluout_m,
+                dut.memwrite_m
+            );
+        end
+    end
+
+endmodule

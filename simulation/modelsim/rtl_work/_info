@@ -1,0 +1,323 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/alexa/Documents/GitHub/mips_5_stage/simulation/modelsim
+valu
+Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+Z2 !s110 1752360485
+!i10b 1
+!s100 kkUfVXV2;aOa1bmS9_z]G3
+Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IF^4Zh^6Fj2E:8GTGMbabR0
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+S1
+R0
+Z5 w1752360279
+Z6 8C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv
+Z7 FC:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv
+!i122 0
+L0 351 14
+Z8 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z9 !s108 1752360485.000000
+!s107 C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv|
+Z10 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/alexa/Documents/GitHub/mips_5_stage|C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv|
+!i113 1
+Z11 o-sv -work work
+Z12 !s92 -sv -work work +incdir+C:/Users/alexa/Documents/GitHub/mips_5_stage
+Z13 tCvgOpt 0
+valudec
+R1
+R2
+!i10b 1
+!s100 V:H4[nMICBYKj[XjkFjX=0
+R3
+I<di;bJSIlHOk4o<kPf4Kg0
+R4
+S1
+R0
+R5
+R6
+R7
+!i122 0
+L0 325 18
+R8
+r1
+!s85 0
+31
+R9
+Z14 !s107 C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv|
+R10
+!i113 1
+R11
+R12
+R13
+vcontroller
+R1
+R2
+!i10b 1
+!s100 jIl=F^2Z3l2`n=7bnCjfD3
+R3
+IkKfBm3d?JGA1P`k;JB[Gh0
+R4
+S1
+R0
+R5
+R6
+R7
+!i122 0
+L0 301 5
+R8
+r1
+!s85 0
+31
+R9
+R14
+R10
+!i113 1
+R11
+R12
+R13
+vdmem
+R1
+R2
+!i10b 1
+!s100 CM5l=@l99;AoPmEXOd4F03
+R3
+IFlM<=ANCL1QXXeLB1A[5g3
+R4
+S1
+R0
+R5
+R6
+R7
+!i122 0
+L0 372 6
+R8
+r1
+!s85 0
+31
+R9
+R14
+R10
+!i113 1
+R11
+R12
+R13
+vflopr
+R1
+R2
+!i10b 1
+!s100 @oK9DOf6A5S=;2gf[iJ5J1
+R3
+IBHM;k?Ozc6K?GioUi[im=1
+R4
+S1
+R0
+R5
+R6
+R7
+!i122 0
+L0 384 12
+R8
+r1
+!s85 0
+31
+R9
+R14
+R10
+!i113 1
+R11
+R12
+R13
+vhazardunit
+R1
+R2
+!i10b 1
+!s100 ^9V`64EBa08cOj:B:h3_U0
+R3
+IK`cOQmV:3KOL4g;TCCn>B2
+R4
+S1
+R0
+R5
+R6
+R7
+!i122 0
+L0 264 33
+R8
+r1
+!s85 0
+31
+R9
+R14
+R10
+!i113 1
+R11
+R12
+R13
+vimem
+R1
+R2
+!i10b 1
+!s100 S2@67l2zGb]HEY?:@nFPZ1
+R3
+I5l0=fKMKdcJGzZ5SiXU:C0
+R4
+S1
+R0
+R5
+R6
+R7
+!i122 0
+L0 366 5
+R8
+r1
+!s85 0
+31
+R9
+R14
+R10
+!i113 1
+R11
+R12
+R13
+vmaindec
+R1
+R2
+!i10b 1
+!s100 iRgZk`_WGiQo8<8KMlVeb0
+R3
+IOUM>efAaaim8b6a<k8bRT1
+R4
+S1
+R0
+R5
+R6
+R7
+!i122 0
+L0 307 17
+R8
+r1
+!s85 0
+31
+R9
+R14
+R10
+!i113 1
+R11
+R12
+R13
+vmips_5_stage
+R1
+R2
+!i10b 1
+!s100 ;4YZoGVNM1zAbMh>1obo;0
+R3
+IFkN^QoNbIQ=PlEMGBC07X2
+R4
+S1
+R0
+R5
+R6
+R7
+!i122 0
+L0 6 253
+R8
+r1
+!s85 0
+31
+R9
+R14
+R10
+!i113 1
+R11
+R12
+R13
+vmux2
+R1
+R2
+!i10b 1
+!s100 `L3SNll77I[8U7[:X>nM52
+R3
+IfQh1b>c`O2T>DDH:]_=iF1
+R4
+S1
+R0
+R5
+R6
+R7
+!i122 0
+L0 397 4
+R8
+r1
+!s85 0
+31
+R9
+R14
+R10
+!i113 1
+R11
+R12
+R13
+vmux3
+R1
+R2
+!i10b 1
+!s100 K?djSGDMG@MfQcmHmXY:f1
+R3
+IC;TM9]<fG62C:3ZzO:BWF2
+R4
+S1
+R0
+R5
+R6
+R7
+!i122 0
+L0 402 9
+R8
+r1
+!s85 0
+31
+R9
+R14
+R10
+!i113 1
+R11
+R12
+R13
+vregfile
+R1
+R2
+!i10b 1
+!s100 VHz<c]7`hWK<?oLNcH6jd1
+R3
+I;@a?mOP_13]9GFB@VJfof3
+R4
+S1
+R0
+R5
+R6
+R7
+!i122 0
+L0 344 6
+R8
+r1
+!s85 0
+31
+R9
+R14
+R10
+!i113 1
+R11
+R12
+R13
