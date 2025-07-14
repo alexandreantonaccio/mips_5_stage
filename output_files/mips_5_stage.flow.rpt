@@ -1,5 +1,5 @@
 Flow report for mips_5_stage
-Sat Jul 12 18:50:32 2025
+Sun Jul 13 21:10:34 2025
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -41,15 +41,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Sat Jul 12 18:50:32 2025       ;
+; Flow Status                        ; Successful - Sun Jul 13 21:10:34 2025       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; mips_5_stage                                ;
 ; Top-level Entity Name              ; mips_5_stage                                ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 927 / 6,272 ( 15 % )                        ;
-;     Total combinational functions  ; 887 / 6,272 ( 14 % )                        ;
-;     Dedicated logic registers      ; 436 / 6,272 ( 7 % )                         ;
-; Total registers                    ; 436                                         ;
+; Total logic elements               ; 626 / 6,272 ( 10 % )                        ;
+;     Total combinational functions  ; 554 / 6,272 ( 9 % )                         ;
+;     Dedicated logic registers      ; 271 / 6,272 ( 4 % )                         ;
+; Total registers                    ; 271                                         ;
 ; Total pins                         ; 67 / 180 ( 37 % )                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 2,048 / 276,480 ( < 1 % )                   ;
@@ -65,7 +65,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 07/12/2025 18:50:11 ;
+; Start date & time ; 07/13/2025 21:10:15 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; mips_5_stage        ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 9619526171095.175236061103624          ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 9619526171095.175245541500364          ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Systemverilog Hdl                      ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (SystemVerilog)        ; <None>        ; --          ; --             ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top            ;
@@ -91,12 +91,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:07     ; 1.0                     ; 4845 MB             ; 00:00:15                           ;
-; Fitter               ; 00:00:07     ; 1.2                     ; 6114 MB             ; 00:00:12                           ;
-; Assembler            ; 00:00:01     ; 1.0                     ; 4689 MB             ; 00:00:01                           ;
-; Timing Analyzer      ; 00:00:01     ; 1.3                     ; 4884 MB             ; 00:00:02                           ;
-; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4664 MB             ; 00:00:01                           ;
-; Total                ; 00:00:17     ; --                      ; --                  ; 00:00:31                           ;
+; Analysis & Synthesis ; 00:00:06     ; 1.0                     ; 4833 MB             ; 00:00:13                           ;
+; Fitter               ; 00:00:06     ; 1.1                     ; 6109 MB             ; 00:00:08                           ;
+; Assembler            ; 00:00:01     ; 1.0                     ; 4687 MB             ; 00:00:00                           ;
+; Timing Analyzer      ; 00:00:01     ; 1.2                     ; 4878 MB             ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4659 MB             ; 00:00:01                           ;
+; Total                ; 00:00:15     ; --                      ; --                  ; 00:00:24                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

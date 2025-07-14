@@ -11,7 +11,7 @@ cModel Technology
 Z0 dC:/Users/alexa/Documents/GitHub/mips_5_stage/simulation/modelsim
 valu
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1752360485
+Z2 !s110 1752455448
 !i10b 1
 !s100 kkUfVXV2;aOa1bmS9_z]G3
 Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -19,7 +19,7 @@ IF^4Zh^6Fj2E:8GTGMbabR0
 Z4 VDg1SIo80bB@j0V0VzS_@n1
 S1
 R0
-Z5 w1752360279
+Z5 w1752455414
 Z6 8C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv
 Z7 FC:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv
 !i122 0
@@ -28,7 +28,7 @@ Z8 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z9 !s108 1752360485.000000
+Z9 !s108 1752455448.000000
 !s107 C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv|
 Z10 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/alexa/Documents/GitHub/mips_5_stage|C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv|
 !i113 1
@@ -169,9 +169,9 @@ vimem
 R1
 R2
 !i10b 1
-!s100 S2@67l2zGb]HEY?:@nFPZ1
+!s100 8eCIL]4j:85heeo@[?4:U0
 R3
-I5l0=fKMKdcJGzZ5SiXU:C0
+I1[X>fh4P^24o3ihWbEciI2
 R4
 S1
 R0

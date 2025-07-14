@@ -1,19 +1,17 @@
 `timescale 1ns/1ps
 
-module tb_mips_jal();
+module tb_mips_forwarding();
 
-    // Sinais para conectar ao DUT (Device Under Test)
+    // Sinais para conectar ao DUT
     logic clk, reset;
     logic [31:0] writedata, dataadr;
     logic memwrite;
 
     // Parâmetro para controlar a duração da simulação
-    // O programa é curto, 30 ciclos são suficientes para ver todo o fluxo.
-    parameter MAX_CYCLES = 30;
+    parameter MAX_CYCLES = 20;
 
     // Instancia o processador pipelined
-    // IMPORTANTE: Certifique-se que o módulo 'imem' dentro do seu processador
-    // está carregando "teste_jal.txt" em vez de "sort.txt".
+    // IMPORTANTE: Altere o módulo 'imem' no seu processador para carregar "fwd_test.txt"
     mips_5_stage dut (
         .clk(clk),
         .reset(reset),
@@ -22,7 +20,7 @@ module tb_mips_jal();
         .memwrite_out(memwrite)
     );
 
-    // Geração de clock: período de 10ns
+    // Geração de clock
     always #5 clk = ~clk;
 
     // Bloco principal da simulação
@@ -30,48 +28,57 @@ module tb_mips_jal();
         // --- SETUP ---
         clk = 0;
         reset = 1;
-        #15; // Mantém o reset ativo por alguns ciclos
+        #15;
         reset = 0;
         #1;
 
-        // --- EXECUÇÃO POR NÚMERO FIXO DE CICLOS ---
-        $display("\n=======================================================");
-        $display("--- Iniciando a execução do teste de JAL/JR por %d ciclos ---", MAX_CYCLES);
-        $display("=======================================================\n");
-        repeat (MAX_CYCLES) @(posedge clk);
+        // Pré-carrega valores nos registradores para um resultado previsível
+        // Este acesso direto só funciona em simulação
+        dut.rf.rf[17] = 10; // $s1 = 10
+        dut.rf.rf[18] = 20; // $s2 = 20
+        $display("Valores Iniciais: $s1=10, $s2=20");
+
+
+        // --- EXECUÇÃO ---
+        $display("\n====================================================================================================");
+        $display("--- Iniciando teste de Forwarding por %d ciclos ---", MAX_CYCLES);
+        $display("====================================================================================================");
+        // CORREÇÃO: Cabeçalho atualizado para refletir os sinais que existem no DUT
+        $display("Ciclo | PC_IF      | Instr_ID   | FwdA | FwdB | ALU_SrcA_EX| ALU_SrcB_EX| ALUOut_MEM | Result_WB");
+        $display("----------------------------------------------------------------------------------------------------");
+
+        repeat (MAX_CYCLES) begin
+            @(posedge clk);
+            // CORREÇÃO: O display agora usa apenas sinais válidos do seu módulo 'mips_pipelined'
+            $display("%5d | %h | %h |  %b  |  %b  | %h | %h | %h   | %h",
+                $time/10,              // Ciclo atual
+                dut.pc_f,              // PC no estágio IF
+                dut.instr_d,           // Instrução no estágio ID
+                dut.forward_a_e,       // Sinal de Forward para operando A
+                dut.forward_b_e,       // Sinal de Forward para operando B
+                dut.srca_forwarded_e,  // Operando A real entrando na ALU (Estágio EX)
+                dut.srcb_alu_e,        // Operando B real entrando na ALU (Estágio EX)
+                dut.aluout_m,          // Saída da ALU no final do estágio MEM
+                dut.result_w           // Resultado sendo escrito no WB
+            );
+        end
 
         // --- VERIFICAÇÃO FINAL ---
         $display("\n=======================================================");
-        $display("--- Simulação finalizada após %d ciclos ---", MAX_CYCLES);
-        $display("Valor final em $t0 (reg 8): %d", dut.rf.rf[8]);
-        $display("Valor final em $t1 (reg 9): %d", dut.rf.rf[9]);
-        $display("Valor final em $ra (reg 31): 0x%h", dut.rf.rf[31]);
+        $display("--- Simulação finalizada ---");
+        $display("Valor final em $s0 (reg 16): %d", dut.rf.rf[16]); // Esperado: 1
+        $display("Valor final em $s1 (reg 17): %d", dut.rf.rf[17]); // Esperado: 12
+        $display("Valor final em $s2 (reg 18): %d", dut.rf.rf[18]); // Esperado: 20 (inalterado)
+        $display("Valor final em $s3 (reg 19): %d", dut.rf.rf[19]); // Esperado: 32
 
-        // Verifica se os valores finais estão corretos
-        if (dut.rf.rf[8] == 15 && dut.rf.rf[9] == 100) begin
-            $display("\n>>> SUCESSO: Os valores nos registradores $t0 e $t1 estão corretos!");
+        if (dut.rf.rf[16] == 1 && dut.rf.rf[17] == 12 && dut.rf.rf[19] == 32) begin
+            $display("\n>>> SUCESSO: O Forwarding funcionou e os valores nos registradores estão corretos!");
         end else begin
-            $display("\n>>> FALHA: Os valores nos registradores estão incorretos!");
+            $display("\n>>> FALHA: Valores incorretos nos registradores!");
         end
         $display("=======================================================\n");
 
         $finish;
-    end
-
-    // Bloco de monitoramento de registradores
-    // Exibe o estado dos registradores relevantes para o teste a cada ciclo
-    always @(negedge clk) begin
-        if (!reset) begin
-            // Monitora o PC e os registradores $t0, $t1, e $ra
-            $display("PC_F=%h | $t0=%d, $t1=%d, $ra=0x%h | Instr_D=%h, ALU_M=%h",
-                dut.pc_f,
-                dut.rf.rf[8],  // $t0
-                dut.rf.rf[9],  // $t1
-                dut.rf.rf[31], // $ra
-                dut.instr_d,   // Instrução no estágio de Decode
-                dut.aluout_m   // Saída da ALU no estágio Memory
-            );
-        end
     end
 
 endmodule

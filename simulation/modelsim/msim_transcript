@@ -12,7 +12,7 @@
 # 
 # vlog -sv -work work +incdir+C:/Users/alexa/Documents/GitHub/mips_5_stage {C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:48:05 on Jul 12,2025
+# Start time: 21:10:48 on Jul 13,2025
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/alexa/Documents/GitHub/mips_5_stage" C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv 
 # -- Compiling module mips_5_stage
 # -- Compiling module hazardunit
@@ -29,7 +29,7 @@
 # 
 # Top level modules:
 # 	mips_5_stage
-# End time: 18:48:05 on Jul 12,2025, Elapsed time: 0:00:00
+# End time: 21:10:48 on Jul 13,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 pwd
@@ -41,7 +41,7 @@ pwd
 # C:/Users/alexa/Documents/GitHub/mips_5_stage
 vlog *.sv
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:48:22 on Jul 12,2025
+# Start time: 21:10:59 on Jul 13,2025
 # vlog -reportprogress 300 mips_5_stage.sv tb_mips.sv 
 # -- Compiling module mips_5_stage
 # -- Compiling module hazardunit
@@ -55,17 +55,26 @@ vlog *.sv
 # -- Compiling module flopr
 # -- Compiling module mux2
 # -- Compiling module mux3
-# -- Compiling module tb_mips_jal
+# -- Compiling module tb_mips_forwarding
 # 
 # Top level modules:
-# 	tb_mips_jal
-# End time: 18:48:22 on Jul 12,2025, Elapsed time: 0:00:00
+# 	tb_mips_forwarding
+# End time: 21:10:59 on Jul 13,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-vsim tb_mips
-# vsim tb_mips 
-# Start time: 18:48:26 on Jul 12,2025
+vsim tb_mips_fowarding
+# vsim tb_mips_fowarding 
+# Start time: 21:11:10 on Jul 13,2025
+# ** Error: (vsim-3170) Could not find 'tb_mips_fowarding'.
+#         Searched libraries:
+#             C:/Users/alexa/Documents/GitHub/mips_5_stage/work
+# Error loading design
+# End time: 21:11:10 on Jul 13,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vsim tb_mips_forwarding
+# vsim tb_mips_forwarding 
+# Start time: 21:11:20 on Jul 13,2025
 # Loading sv_std.std
-# Loading work.tb_mips
+# Loading work.tb_mips_forwarding
 # Loading work.mips_5_stage
 # Loading work.flopr
 # Loading work.imem
@@ -79,555 +88,47 @@ vsim tb_mips
 # Loading work.dmem
 # Loading work.hazardunit
 run -all
+# Valores Iniciais: $s1=10, $s2=20
+# 
+# ====================================================================================================
+# --- Iniciando teste de Forwarding por          20 ciclos ---
+# ====================================================================================================
+# Ciclo | PC_IF      | Instr_ID   | FwdA | FwdB | ALU_SrcA_EX| ALU_SrcB_EX| ALUOut_MEM | Result_WB
+# ----------------------------------------------------------------------------------------------------
+#     2 | 00000004 | 20110001 |  00  |  00  | 00000000 | 00000000 | 00000000   | 00000000
+#     3 | 00000008 | 22320002 |  00  |  00  | 00000000 | 00000001 | 00000000   | 00000000
+#     4 | 0000000c | 02329820 |  10  |  00  | 00000001 | 00000002 | 00000001   | 00000000
+#     5 | 00000010 | 08000003 |  01  |  10  | 00000001 | 00000003 | 00000003   | 00000001
+#     6 | 0000000c | xxxxxxxx |  00  |  00  | 00000000 | 00000000 | 00000004   | 00000003
+#     7 | xxxxxxxx | 08000003 |  00  |  00  | xxxxxxxx | xxxxxxxx | 00000000   | 00000004
+#     8 | xxxxxxxx | 08000003 |  00  |  00  | 00000000 | 00000000 | xxxxxxxx   | 00000000
+#     9 | 000000Xc | xxxxxxxx |  00  |  00  | 00000000 | 00000000 | 00000000   | xxxxxxxx
+#    10 | xxxxxxxx | xxxxxxxx |  00  |  00  | xxxxxxxx | xxxxxxxx | 00000000   | 00000000
+#    11 | xxxxxxxx | xxxxxxxx |  00  |  00  | xxxxxxxx | xxxxxxxx | xxxxxxxx   | 00000000
+#    12 | xxxxxxxx | xxxxxxxx |  00  |  00  | xxxxxxxx | xxxxxxxx | xxxxxxxx   | xxxxxxxx
+#    13 | xxxxxxxx | xxxxxxxx |  00  |  00  | xxxxxxxx | xxxxxxxx | xxxxxxxx   | xxxxxxxx
+#    14 | xxxxxxxx | xxxxxxxx |  00  |  00  | xxxxxxxx | xxxxxxxx | xxxxxxxx   | xxxxxxxx
+#    15 | xxxxxxxx | xxxxxxxx |  00  |  00  | xxxxxxxx | xxxxxxxx | xxxxxxxx   | xxxxxxxx
+#    16 | xxxxxxxx | xxxxxxxx |  00  |  00  | xxxxxxxx | xxxxxxxx | xxxxxxxx   | xxxxxxxx
+#    17 | xxxxxxxx | xxxxxxxx |  00  |  00  | xxxxxxxx | xxxxxxxx | xxxxxxxx   | xxxxxxxx
+#    18 | xxxxxxxx | xxxxxxxx |  00  |  00  | xxxxxxxx | xxxxxxxx | xxxxxxxx   | xxxxxxxx
+#    19 | xxxxxxxx | xxxxxxxx |  00  |  00  | xxxxxxxx | xxxxxxxx | xxxxxxxx   | xxxxxxxx
+#    20 | xxxxxxxx | xxxxxxxx |  00  |  00  | xxxxxxxx | xxxxxxxx | xxxxxxxx   | xxxxxxxx
+#    21 | xxxxxxxx | xxxxxxxx |  00  |  00  | xxxxxxxx | xxxxxxxx | xxxxxxxx   | xxxxxxxx
 # 
 # =======================================================
-# --- Array Inicial na Memória (Endereços 0 a 36) ---
-# dmem[ 0 / 0x00000000]:         11
-# dmem[ 1 / 0x00000004]:         10
-# dmem[ 2 / 0x00000008]:         13
-# dmem[ 3 / 0x0000000c]:         12
-# dmem[ 4 / 0x00000010]:          0
-# dmem[ 5 / 0x00000014]:          0
-# dmem[ 6 / 0x00000018]:          0
-# dmem[ 7 / 0x0000001c]:          0
-# dmem[ 8 / 0x00000020]:          0
-# dmem[ 9 / 0x00000024]:          0
+# --- Simulação finalizada ---
+# Valor final em $s0 (reg 16):          x
+# Valor final em $s1 (reg 17):          1
+# Valor final em $s2 (reg 18):          3
+# Valor final em $s3 (reg 19):          4
+# 
+# >>> FALHA: Valores incorretos nos registradores!
 # =======================================================
 # 
-# --- Iniciando a execução do programa de ordenação por         400 ciclos ---
-# PC_F=00000004 | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=00000000, MEM_W=0
-# PC_F=00000008 | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=00000000, MEM_W=0
-# PC_F=00000014 | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=00000005, MEM_W=0
-# PC_F=00000018 | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=00000000, MEM_W=0
-# PC_F=0000001c | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=00000064, MEM_W=0
-# PC_F=00000008 | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=0000000f, MEM_W=0
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=00000008, MEM_W=0
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=00000064, MEM_W=0
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=00000064, MEM_W=0
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# PC_F=xxxxxxxx | i($s0)=         x, j($s1)=         x | v[j]($t3)=         x, v[j+1]($t4)=         x | ALU_M=xxxxxxxx, MEM_W=x
-# 
-# =======================================================
-# --- Simulação finalizada após         400 ciclos ---
-# --- Array Final na Memória (Endereços 0 a 36) ---
-# dmem[ 0 / 0x00000000]:         11
-# dmem[ 1 / 0x00000004]:         10
-# dmem[ 2 / 0x00000008]:         13
-# dmem[ 3 / 0x0000000c]:         12
-# dmem[ 4 / 0x00000010]:          0
-# dmem[ 5 / 0x00000014]:          0
-# dmem[ 6 / 0x00000018]:          0
-# dmem[ 7 / 0x0000001c]:          0
-# dmem[ 8 / 0x00000020]:          0
-# dmem[ 9 / 0x00000024]:          0
-# =======================================================
-# 
-# ** Note: $finish    : tb_mips.sv(58)
-#    Time: 4015 ns  Iteration: 1  Instance: /tb_mips
+# ** Note: $finish    : tb_mips.sv(81)
+#    Time: 215 ns  Iteration: 1  Instance: /tb_mips_forwarding
 # 1
-# Break in Module tb_mips at tb_mips.sv line 58
-vlog *.sv
-# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:49:50 on Jul 12,2025
-# vlog -reportprogress 300 mips_5_stage.sv tb_mips.sv 
-# -- Compiling module mips_5_stage
-# -- Compiling module hazardunit
-# -- Compiling module controller
-# -- Compiling module maindec
-# -- Compiling module aludec
-# -- Compiling module regfile
-# -- Compiling module alu
-# -- Compiling module imem
-# -- Compiling module dmem
-# -- Compiling module flopr
-# -- Compiling module mux2
-# -- Compiling module mux3
-# -- Compiling module tb_mips_jal
-# 
-# Top level modules:
-# 	mips_5_stage
-# 	tb_mips_jal
-# End time: 18:49:50 on Jul 12,2025, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vlog *.sv
-# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:50:44 on Jul 12,2025
-# vlog -reportprogress 300 mips_5_stage.sv tb_mips.sv 
-# -- Compiling module mips_5_stage
-# -- Compiling module hazardunit
-# -- Compiling module controller
-# -- Compiling module maindec
-# -- Compiling module aludec
-# -- Compiling module regfile
-# -- Compiling module alu
-# -- Compiling module imem
-# -- Compiling module dmem
-# -- Compiling module flopr
-# -- Compiling module mux2
-# -- Compiling module mux3
-# -- Compiling module tb_mips_jal
-# 
-# Top level modules:
-# 	tb_mips_jal
-# End time: 18:50:44 on Jul 12,2025, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-vsim tb_mips_jal
-# End time: 18:51:00 on Jul 12,2025, Elapsed time: 0:02:34
-# Errors: 0, Warnings: 0
-# vsim tb_mips_jal 
-# Start time: 18:51:00 on Jul 12,2025
-# Loading sv_std.std
-# Loading work.tb_mips_jal
-# Loading work.mips_5_stage
-# Loading work.flopr
-# Loading work.imem
-# Loading work.controller
-# Loading work.maindec
-# Loading work.aludec
-# Loading work.regfile
-# Loading work.mux3
-# Loading work.mux2
-# Loading work.alu
-# Loading work.dmem
-# Loading work.hazardunit
-run -all
-# 
-# =======================================================
-# --- Iniciando a execução do teste de JAL/JR por          30 ciclos ---
-# =======================================================
-# 
-# PC_F=00000004 | $t0=         x, $t1=         x, $ra=0xxxxxxxxx | Instr_D=20080005, ALU_M=00000000
-# PC_F=00000008 | $t0=         x, $t1=         x, $ra=0xxxxxxxxx | Instr_D=0c000005, ALU_M=00000000
-# PC_F=00000014 | $t0=         x, $t1=         x, $ra=0xxxxxxxxx | Instr_D=20090064, ALU_M=00000005
-# PC_F=00000018 | $t0=         x, $t1=         x, $ra=0xxxxxxxxx | Instr_D=2108000a, ALU_M=00000000
-# PC_F=0000001c | $t0=         5, $t1=         x, $ra=0xxxxxxxxx | Instr_D=03e00008, ALU_M=00000064
-# PC_F=00000008 | $t0=         5, $t1=         x, $ra=0x00000008 | Instr_D=xxxxxxxx, ALU_M=0000000f
-# PC_F=xxxxxxxx | $t0=         5, $t1=       100, $ra=0x00000008 | Instr_D=20090064, ALU_M=00000008
-# PC_F=xxxxxxxx | $t0=        15, $t1=       100, $ra=0x00000008 | Instr_D=20090064, ALU_M=xxxxxxxx
-# PC_F=xxxxxxxx | $t0=        15, $t1=       100, $ra=0x00000008 | Instr_D=xxxxxxxx, ALU_M=00000064
-# PC_F=xxxxxxxx | $t0=        15, $t1=       100, $ra=0x00000008 | Instr_D=xxxxxxxx, ALU_M=00000064
-# PC_F=xxxxxxxx | $t0=        15, $t1=       100, $ra=0x00000008 | Instr_D=xxxxxxxx, ALU_M=xxxxxxxx
-# PC_F=xxxxxxxx | $t0=        15, $t1=       100, $ra=0x00000008 | Instr_D=xxxxxxxx, ALU_M=xxxxxxxx
-# PC_F=xxxxxxxx | $t0=        15, $t1=       100, $ra=0x00000008 | Instr_D=xxxxxxxx, ALU_M=xxxxxxxx
-# PC_F=xxxxxxxx | $t0=        15, $t1=       100, $ra=0x00000008 | Instr_D=xxxxxxxx, ALU_M=xxxxxxxx
-# PC_F=xxxxxxxx | $t0=        15, $t1=       100, $ra=0x00000008 | Instr_D=xxxxxxxx, ALU_M=xxxxxxxx
-# PC_F=xxxxxxxx | $t0=        15, $t1=       100, $ra=0x00000008 | Instr_D=xxxxxxxx, ALU_M=xxxxxxxx
-# PC_F=xxxxxxxx | $t0=        15, $t1=       100, $ra=0x00000008 | Instr_D=xxxxxxxx, ALU_M=xxxxxxxx
-# PC_F=xxxxxxxx | $t0=        15, $t1=       100, $ra=0x00000008 | Instr_D=xxxxxxxx, ALU_M=xxxxxxxx
-# PC_F=xxxxxxxx | $t0=        15, $t1=       100, $ra=0x00000008 | Instr_D=xxxxxxxx, ALU_M=xxxxxxxx
-# PC_F=xxxxxxxx | $t0=        15, $t1=       100, $ra=0x00000008 | Instr_D=xxxxxxxx, ALU_M=xxxxxxxx
-# PC_F=xxxxxxxx | $t0=        15, $t1=       100, $ra=0x00000008 | Instr_D=xxxxxxxx, ALU_M=xxxxxxxx
-# PC_F=xxxxxxxx | $t0=        15, $t1=       100, $ra=0x00000008 | Instr_D=xxxxxxxx, ALU_M=xxxxxxxx
-# PC_F=xxxxxxxx | $t0=        15, $t1=       100, $ra=0x00000008 | Instr_D=xxxxxxxx, ALU_M=xxxxxxxx
-# PC_F=xxxxxxxx | $t0=        15, $t1=       100, $ra=0x00000008 | Instr_D=xxxxxxxx, ALU_M=xxxxxxxx
-# PC_F=xxxxxxxx | $t0=        15, $t1=       100, $ra=0x00000008 | Instr_D=xxxxxxxx, ALU_M=xxxxxxxx
-# PC_F=xxxxxxxx | $t0=        15, $t1=       100, $ra=0x00000008 | Instr_D=xxxxxxxx, ALU_M=xxxxxxxx
-# PC_F=xxxxxxxx | $t0=        15, $t1=       100, $ra=0x00000008 | Instr_D=xxxxxxxx, ALU_M=xxxxxxxx
-# PC_F=xxxxxxxx | $t0=        15, $t1=       100, $ra=0x00000008 | Instr_D=xxxxxxxx, ALU_M=xxxxxxxx
-# PC_F=xxxxxxxx | $t0=        15, $t1=       100, $ra=0x00000008 | Instr_D=xxxxxxxx, ALU_M=xxxxxxxx
-# PC_F=xxxxxxxx | $t0=        15, $t1=       100, $ra=0x00000008 | Instr_D=xxxxxxxx, ALU_M=xxxxxxxx
-# 
-# =======================================================
-# --- Simulação finalizada após          30 ciclos ---
-# Valor final em $t0 (reg 8):         15
-# Valor final em $t1 (reg 9):        100
-# Valor final em $ra (reg 31): 0x00000008
-# 
-# >>> SUCESSO: Os valores nos registradores $t0 e $t1 estão corretos!
-# =======================================================
-# 
-# ** Note: $finish    : tb_mips.sv(58)
-#    Time: 315 ns  Iteration: 1  Instance: /tb_mips_jal
-# 1
-# Break in Module tb_mips_jal at tb_mips.sv line 58
-# End time: 18:56:49 on Jul 12,2025, Elapsed time: 0:05:49
+# Break in Module tb_mips_forwarding at tb_mips.sv line 81
+# End time: 21:29:26 on Jul 13,2025, Elapsed time: 0:18:06
 # Errors: 0, Warnings: 0

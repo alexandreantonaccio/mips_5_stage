@@ -1,0 +1,9 @@
+// Endereço | Instrução
+// 0x00     | addi $s0, $zero, 1
+20110001
+// 0x04     | addi $s1, $s1, 2
+22320002
+// 0x08     | add $s3, $s1, $s2
+02329820
+// 0x0C     | j 0x0C (loop infinito para parar)
+08000003
