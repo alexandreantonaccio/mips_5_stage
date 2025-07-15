@@ -8,316 +8,316 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/Users/alexa/Documents/GitHub/mips_5_stage/simulation/modelsim
+Z0 dC:/Users/alexandre/Documents/Github/mips_5_stage/simulation/modelsim
 valu
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1752553064
+Z2 !s110 1752612984
 !i10b 1
-!s100 foZ;?OoZznXD4XiB^lVYk3
+!s100 JDGS=imZ?dJX;IPmgW6X92
 Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
-IhkVNTDDzIXmJcL09U`Yf00
+I0b3J;RV;^<Y2;JMeAN>bT2
 Z4 VDg1SIo80bB@j0V0VzS_@n1
 S1
 R0
-Z5 w1752553030
-Z6 8C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv
-Z7 FC:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv
-!i122 0
-L0 364 14
-Z8 OV;L;2020.1;71
+w1752611332
+8C:/Users/alexandre/Documents/Github/mips_5_stage/alu.sv
+FC:/Users/alexandre/Documents/Github/mips_5_stage/alu.sv
+!i122 6
+L0 1 14
+Z5 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z9 !s108 1752553064.000000
-!s107 C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv|
-Z10 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/alexa/Documents/GitHub/mips_5_stage|C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv|
+Z6 !s108 1752612984.000000
+!s107 C:/Users/alexandre/Documents/Github/mips_5_stage/alu.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/alexandre/Documents/Github/mips_5_stage|C:/Users/alexandre/Documents/Github/mips_5_stage/alu.sv|
 !i113 1
-Z11 o-sv -work work
-Z12 !s92 -sv -work work +incdir+C:/Users/alexa/Documents/GitHub/mips_5_stage
-Z13 tCvgOpt 0
+Z7 o-sv -work work
+Z8 !s92 -sv -work work +incdir+C:/Users/alexandre/Documents/Github/mips_5_stage
+Z9 tCvgOpt 0
 valudec
 R1
 R2
 !i10b 1
-!s100 zZS=ej@CZEhL0Y;en<E0N1
+!s100 M0ic?zGMMoS2;i@mgebzL0
 R3
-I366G23R4R8E6fE;:gPMa]2
+I8KFm[M=4h]=on082F4l5>1
 R4
 S1
 R0
+w1752611283
+8C:/Users/alexandre/Documents/Github/mips_5_stage/aludec.sv
+FC:/Users/alexandre/Documents/Github/mips_5_stage/aludec.sv
+!i122 4
+L0 1 18
 R5
-R6
-R7
-!i122 0
-L0 338 18
-R8
 r1
 !s85 0
 31
-R9
-Z14 !s107 C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv|
-R10
+R6
+!s107 C:/Users/alexandre/Documents/Github/mips_5_stage/aludec.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/alexandre/Documents/Github/mips_5_stage|C:/Users/alexandre/Documents/Github/mips_5_stage/aludec.sv|
 !i113 1
-R11
-R12
-R13
+R7
+R8
+R9
 vcontroller
 R1
 R2
 !i10b 1
-!s100 IEP2?5NKj:Ph8R5TQMR@63
+!s100 ;aZA3Wj]IU0jCG1BV:zgP0
 R3
-IG>om2eg96b08<GoYLi5@P1
+I?4Oc7LDCZ0n^i]SlMCRFB1
 R4
 S1
 R0
+w1752611224
+8C:/Users/alexandre/Documents/Github/mips_5_stage/controller.sv
+FC:/Users/alexandre/Documents/Github/mips_5_stage/controller.sv
+!i122 2
+Z10 L0 1 5
 R5
-R6
-R7
-!i122 0
-L0 314 5
-R8
 r1
 !s85 0
 31
-R9
-R14
-R10
+Z11 !s108 1752612983.000000
+!s107 C:/Users/alexandre/Documents/Github/mips_5_stage/controller.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/alexandre/Documents/Github/mips_5_stage|C:/Users/alexandre/Documents/Github/mips_5_stage/controller.sv|
 !i113 1
-R11
-R12
-R13
+R7
+R8
+R9
 vdmem
 R1
-R2
+Z12 !s110 1752612985
 !i10b 1
-!s100 8B;M53QX1n_:Ma1=`VjH62
+!s100 @[mGXETW5QHl2^bCD=2`H0
 R3
-I6f[fLiALboDoTa5FgD3Z50
+ITZ6J?Q>g8W1WS>iF9c4;n1
 R4
 S1
 R0
+w1752611375
+8C:/Users/alexandre/Documents/Github/mips_5_stage/dmem.sv
+FC:/Users/alexandre/Documents/Github/mips_5_stage/dmem.sv
+!i122 7
+R10
 R5
-R6
-R7
-!i122 0
-L0 385 5
-R8
 r1
 !s85 0
 31
-R9
-R14
-R10
+R6
+!s107 C:/Users/alexandre/Documents/Github/mips_5_stage/dmem.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/alexandre/Documents/Github/mips_5_stage|C:/Users/alexandre/Documents/Github/mips_5_stage/dmem.sv|
 !i113 1
-R11
-R12
-R13
+R7
+R8
+R9
 vflopr
 R1
-R2
+R12
 !i10b 1
-!s100 >eF=<SnQ6GXHo?odjV0002
+!s100 C]ZNJ`7d;6zli2DUmNZ823
 R3
-I7:?]FT:HEA;1G6]`_`TNc2
+I0agOPdB;Oc4^[3Vz9GZPd2
 R4
 S1
 R0
+w1752611400
+8C:/Users/alexandre/Documents/Github/mips_5_stage/flopr.sv
+FC:/Users/alexandre/Documents/Github/mips_5_stage/flopr.sv
+!i122 8
+L0 1 12
 R5
-R6
-R7
-!i122 0
-L0 392 12
-R8
 r1
 !s85 0
 31
-R9
-R14
-R10
+Z13 !s108 1752612985.000000
+!s107 C:/Users/alexandre/Documents/Github/mips_5_stage/flopr.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/alexandre/Documents/Github/mips_5_stage|C:/Users/alexandre/Documents/Github/mips_5_stage/flopr.sv|
 !i113 1
-R11
-R12
-R13
+R7
+R8
+R9
 vhazardunit
 R1
-R2
+Z14 !s110 1752612983
 !i10b 1
-!s100 ca]`aC[Hdb9fzbZM>ALzl0
+!s100 D?]`99dY8IG7nJF34H^i?1
 R3
-IP0:]km3C[1bMeG3zCkcBF0
+IGO8]jTT^iXfI0QJRliJc>3
 R4
 S1
 R0
+w1752612404
+8C:/Users/alexandre/Documents/Github/mips_5_stage/hazardunit.sv
+FC:/Users/alexandre/Documents/Github/mips_5_stage/hazardunit.sv
+!i122 1
+L0 1 36
 R5
-R6
-R7
-!i122 0
-L0 271 41
-R8
 r1
 !s85 0
 31
-R9
-R14
-R10
-!i113 1
 R11
-R12
-R13
+!s107 C:/Users/alexandre/Documents/Github/mips_5_stage/hazardunit.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/alexandre/Documents/Github/mips_5_stage|C:/Users/alexandre/Documents/Github/mips_5_stage/hazardunit.sv|
+!i113 1
+R7
+R8
+R9
 vimem
 R1
-R2
+!s110 1752612986
 !i10b 1
-!s100 KAc_dchJEKge6J:dE^P;W2
+!s100 =Ojg8z=jX<MJfZd0UiFYT2
 R3
-IICOgX?20gDKzkRAn8X2633
+I??5>b2RfKg4RW^^RWoIWO0
 R4
 S1
 R0
+w1752611351
+8C:/Users/alexandre/Documents/Github/mips_5_stage/imem.sv
+FC:/Users/alexandre/Documents/Github/mips_5_stage/imem.sv
+!i122 11
+R10
 R5
-R6
-R7
-!i122 0
-L0 379 5
-R8
 r1
 !s85 0
 31
-R9
-R14
-R10
-!i113 1
-R11
-R12
 R13
+!s107 C:/Users/alexandre/Documents/Github/mips_5_stage/imem.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/alexandre/Documents/Github/mips_5_stage|C:/Users/alexandre/Documents/Github/mips_5_stage/imem.sv|
+!i113 1
+R7
+R8
+R9
 vmaindec
 R1
 R2
 !i10b 1
-!s100 6gEc<b:=:EF2QB_RJ8IC;1
+!s100 dWd^7Q?gnF?YdVYFUj0VI3
 R3
-I<>b[Bc9UEWzJZ74lS7hX21
+IF3eX;DWbeokc1?E3lgGWI3
 R4
 S1
 R0
+w1752611254
+8C:/Users/alexandre/Documents/Github/mips_5_stage/maindec.sv
+FC:/Users/alexandre/Documents/Github/mips_5_stage/maindec.sv
+!i122 3
+L0 1 17
 R5
-R6
-R7
-!i122 0
-L0 320 17
-R8
 r1
 !s85 0
 31
-R9
-R14
-R10
+R6
+!s107 C:/Users/alexandre/Documents/Github/mips_5_stage/maindec.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/alexandre/Documents/Github/mips_5_stage|C:/Users/alexandre/Documents/Github/mips_5_stage/maindec.sv|
 !i113 1
-R11
-R12
-R13
+R7
+R8
+R9
 vmips_5_stage
 R1
-R2
+R14
 !i10b 1
-!s100 kdQOfRGQfW:E<QizdCCio1
+!s100 bWV_?aB]=X_JFb:k;JIHO3
 R3
-IRLFGE>9737k0VE2<3D<Ue2
+IQzWRCiM5JXQ?D?F7=WaA?1
 R4
 S1
 R0
-R5
-R6
-R7
+w1752611949
+8C:/Users/alexandre/Documents/Github/mips_5_stage/mips_5_stage.sv
+FC:/Users/alexandre/Documents/Github/mips_5_stage/mips_5_stage.sv
 !i122 0
-L0 5 263
-R8
+L0 3 222
+R5
 r1
 !s85 0
 31
-R9
-R14
-R10
-!i113 1
 R11
-R12
-R13
+!s107 C:/Users/alexandre/Documents/Github/mips_5_stage/mips_5_stage.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/alexandre/Documents/Github/mips_5_stage|C:/Users/alexandre/Documents/Github/mips_5_stage/mips_5_stage.sv|
+!i113 1
+R7
+R8
+R9
 vmux2
 R1
-R2
+R12
 !i10b 1
-!s100 1kLo`N1DPSmcgH[UcY?HA1
+!s100 1WZQdmR;cQXOn_3G8cQ>c1
 R3
-I7TRU02d[57gIg5[gNHo@D0
+IR:iaWG110E0RmEm4O?<fX0
 R4
 S1
 R0
+w1752611422
+8C:/Users/alexandre/Documents/Github/mips_5_stage/mux2.sv
+FC:/Users/alexandre/Documents/Github/mips_5_stage/mux2.sv
+!i122 9
+L0 1 4
 R5
-R6
-R7
-!i122 0
-L0 405 4
-R8
 r1
 !s85 0
 31
-R9
-R14
-R10
-!i113 1
-R11
-R12
 R13
+!s107 C:/Users/alexandre/Documents/Github/mips_5_stage/mux2.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/alexandre/Documents/Github/mips_5_stage|C:/Users/alexandre/Documents/Github/mips_5_stage/mux2.sv|
+!i113 1
+R7
+R8
+R9
 vmux3
 R1
-R2
+R12
 !i10b 1
-!s100 1UaElIiFYIX?78Bj?D35R2
+!s100 53NW1FPJVI2n1CfYGeCNg2
 R3
-IIA]bhGY>G9zB]UeDnl40>3
+IK9XGWGA?APElQg`5=E>FM3
 R4
 S1
 R0
+w1752611447
+8C:/Users/alexandre/Documents/Github/mips_5_stage/mux3.sv
+FC:/Users/alexandre/Documents/Github/mips_5_stage/mux3.sv
+!i122 10
+L0 1 9
 R5
-R6
-R7
-!i122 0
-L0 410 9
-R8
 r1
 !s85 0
 31
-R9
-R14
-R10
-!i113 1
-R11
-R12
 R13
+!s107 C:/Users/alexandre/Documents/Github/mips_5_stage/mux3.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/alexandre/Documents/Github/mips_5_stage|C:/Users/alexandre/Documents/Github/mips_5_stage/mux3.sv|
+!i113 1
+R7
+R8
+R9
 vregfile
 R1
 R2
 !i10b 1
-!s100 FiV`hlibEidTF=`8SF4EH2
+!s100 GYmcCThjLlT3d>RoZP[lD2
 R3
-I3[o<LckY]z::Hd5B6SVRf0
+IEbDnLHF2QnoT8ZJWm]BhF0
 R4
 S1
 R0
+w1752611303
+8C:/Users/alexandre/Documents/Github/mips_5_stage/regfile.sv
+FC:/Users/alexandre/Documents/Github/mips_5_stage/regfile.sv
+!i122 5
+L0 1 6
 R5
-R6
-R7
-!i122 0
-L0 357 6
-R8
 r1
 !s85 0
 31
-R9
-R14
-R10
+R6
+!s107 C:/Users/alexandre/Documents/Github/mips_5_stage/regfile.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/alexandre/Documents/Github/mips_5_stage|C:/Users/alexandre/Documents/Github/mips_5_stage/regfile.sv|
 !i113 1
-R11
-R12
-R13
+R7
+R8
+R9

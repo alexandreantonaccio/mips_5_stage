@@ -17,7 +17,7 @@
 // PROGRAM "Quartus Prime"
 // VERSION "Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition"
 
-// DATE "07/15/2025 00:17:31"
+// DATE "07/15/2025 17:00:57"
 
 // 
 // Device: Altera EP4CE6F17C6 Package FBGA256
@@ -35,11 +35,11 @@ module mips_5_stage (
 	writedata_out,
 	dataadr_out,
 	memwrite_out);
-input 	logic clk ;
-input 	logic reset ;
-output 	logic [31:0] writedata_out ;
-output 	logic [31:0] dataadr_out ;
-output 	logic memwrite_out ;
+input 	clk;
+input 	reset;
+output 	[31:0] writedata_out;
+output 	[31:0] dataadr_out;
+output 	memwrite_out;
 
 // Design Ports Information
 // writedata_out[0]	=>  Location: PIN_A6,	 I/O Standard: 2.5 V,	 Current Strength: Default

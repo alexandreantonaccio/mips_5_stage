@@ -1,5 +1,5 @@
 Analysis & Synthesis report for mips_5_stage
-Tue Jul 15 00:17:19 2025
+Tue Jul 15 17:00:35 2025
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -64,7 +64,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Jul 15 00:17:19 2025       ;
+; Analysis & Synthesis Status        ; Successful - Tue Jul 15 17:00:35 2025       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; mips_5_stage                                ;
 ; Top-level Entity Name              ; mips_5_stage                                ;
@@ -171,22 +171,17 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 12          ;
-; Maximum allowed            ; 12          ;
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 12          ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.0%      ;
 ;     Processor 3            ;   0.0%      ;
 ;     Processor 4            ;   0.0%      ;
-;     Processor 5            ;   0.0%      ;
-;     Processor 6            ;   0.0%      ;
-;     Processor 7            ;   0.0%      ;
-;     Processor 8            ;   0.0%      ;
-;     Processors 9-12        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -195,8 +190,19 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                 ; Library ;
 +----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
-; mips_5_stage.sv                  ; yes             ; User SystemVerilog HDL File  ; C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv                 ;         ;
-; branch.txt                       ; yes             ; Auto-Found File              ; C:/Users/alexa/Documents/GitHub/mips_5_stage/branch.txt                      ;         ;
+; mips_5_stage.sv                  ; yes             ; User SystemVerilog HDL File  ; C:/Users/alexandre/Documents/Github/mips_5_stage/mips_5_stage.sv             ;         ;
+; hazardunit.sv                    ; yes             ; User SystemVerilog HDL File  ; C:/Users/alexandre/Documents/Github/mips_5_stage/hazardunit.sv               ;         ;
+; controller.sv                    ; yes             ; User SystemVerilog HDL File  ; C:/Users/alexandre/Documents/Github/mips_5_stage/controller.sv               ;         ;
+; maindec.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/Users/alexandre/Documents/Github/mips_5_stage/maindec.sv                  ;         ;
+; aludec.sv                        ; yes             ; User SystemVerilog HDL File  ; C:/Users/alexandre/Documents/Github/mips_5_stage/aludec.sv                   ;         ;
+; regfile.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/Users/alexandre/Documents/Github/mips_5_stage/regfile.sv                  ;         ;
+; alu.sv                           ; yes             ; User SystemVerilog HDL File  ; C:/Users/alexandre/Documents/Github/mips_5_stage/alu.sv                      ;         ;
+; imem.sv                          ; yes             ; User SystemVerilog HDL File  ; C:/Users/alexandre/Documents/Github/mips_5_stage/imem.sv                     ;         ;
+; dmem.sv                          ; yes             ; User SystemVerilog HDL File  ; C:/Users/alexandre/Documents/Github/mips_5_stage/dmem.sv                     ;         ;
+; flopr.sv                         ; yes             ; User SystemVerilog HDL File  ; C:/Users/alexandre/Documents/Github/mips_5_stage/flopr.sv                    ;         ;
+; mux2.sv                          ; yes             ; User SystemVerilog HDL File  ; C:/Users/alexandre/Documents/Github/mips_5_stage/mux2.sv                     ;         ;
+; mux3.sv                          ; yes             ; User SystemVerilog HDL File  ; C:/Users/alexandre/Documents/Github/mips_5_stage/mux3.sv                     ;         ;
+; branch.txt                       ; yes             ; Auto-Found File              ; C:/Users/alexandre/Documents/Github/mips_5_stage/branch.txt                  ;         ;
 ; altsyncram.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
 ; stratix_ram_block.inc            ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
 ; lpm_mux.inc                      ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
@@ -206,7 +212,7 @@ https://fpgasoftware.intel.com/eula.
 ; altrom.inc                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altrom.inc            ;         ;
 ; altram.inc                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altram.inc            ;         ;
 ; altdpram.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
-; db/altsyncram_mcc1.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexa/Documents/GitHub/mips_5_stage/db/altsyncram_mcc1.tdf          ;         ;
+; db/altsyncram_mcc1.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexandre/Documents/Github/mips_5_stage/db/altsyncram_mcc1.tdf      ;         ;
 +----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
 
 
@@ -903,7 +909,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -913,52 +919,69 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Tue Jul 15 00:17:11 2025
+    Info: Processing started: Tue Jul 15 17:00:22 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off mips_5_stage -c mips_5_stage
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
-Info (12021): Found 12 design units, including 12 entities, in source file mips_5_stage.sv
-    Info (12023): Found entity 1: mips_5_stage File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 5
-    Info (12023): Found entity 2: hazardunit File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 271
-    Info (12023): Found entity 3: controller File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 314
-    Info (12023): Found entity 4: maindec File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 320
-    Info (12023): Found entity 5: aludec File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 338
-    Info (12023): Found entity 6: regfile File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 357
-    Info (12023): Found entity 7: alu File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 364
-    Info (12023): Found entity 8: imem File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 379
-    Info (12023): Found entity 9: dmem File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 385
-    Info (12023): Found entity 10: flopr File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 392
-    Info (12023): Found entity 11: mux2 File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 405
-    Info (12023): Found entity 12: mux3 File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 410
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file mips_5_stage.sv
+    Info (12023): Found entity 1: mips_5_stage File: C:/Users/alexandre/Documents/Github/mips_5_stage/mips_5_stage.sv Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file tb_mips.sv
-    Info (12023): Found entity 1: tb_mips_beq File: C:/Users/alexa/Documents/GitHub/mips_5_stage/tb_mips.sv Line: 3
+    Info (12023): Found entity 1: tb_mips_beq File: C:/Users/alexandre/Documents/Github/mips_5_stage/tb_mips.sv Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file tb_mips_load_word.sv
-    Info (12023): Found entity 1: tb_mips_load_word File: C:/Users/alexa/Documents/GitHub/mips_5_stage/tb_mips_load_word.sv Line: 3
+    Info (12023): Found entity 1: tb_mips_load_word File: C:/Users/alexandre/Documents/Github/mips_5_stage/tb_mips_load_word.sv Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file tb_mips_branch.sv
-    Info (12023): Found entity 1: tb_mips_branch File: C:/Users/alexa/Documents/GitHub/mips_5_stage/tb_mips_branch.sv Line: 3
+    Info (12023): Found entity 1: tb_mips_branch File: C:/Users/alexandre/Documents/Github/mips_5_stage/tb_mips_branch.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file hazardunit.sv
+    Info (12023): Found entity 1: hazardunit File: C:/Users/alexandre/Documents/Github/mips_5_stage/hazardunit.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file controller.sv
+    Info (12023): Found entity 1: controller File: C:/Users/alexandre/Documents/Github/mips_5_stage/controller.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file maindec.sv
+    Info (12023): Found entity 1: maindec File: C:/Users/alexandre/Documents/Github/mips_5_stage/maindec.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file aludec.sv
+    Info (12023): Found entity 1: aludec File: C:/Users/alexandre/Documents/Github/mips_5_stage/aludec.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file regfile.sv
+    Info (12023): Found entity 1: regfile File: C:/Users/alexandre/Documents/Github/mips_5_stage/regfile.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file alu.sv
+    Info (12023): Found entity 1: alu File: C:/Users/alexandre/Documents/Github/mips_5_stage/alu.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file imem.sv
+    Info (12023): Found entity 1: imem File: C:/Users/alexandre/Documents/Github/mips_5_stage/imem.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file dmem.sv
+    Info (12023): Found entity 1: dmem File: C:/Users/alexandre/Documents/Github/mips_5_stage/dmem.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file flopr.sv
+    Info (12023): Found entity 1: flopr File: C:/Users/alexandre/Documents/Github/mips_5_stage/flopr.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux2.sv
+    Info (12023): Found entity 1: mux2 File: C:/Users/alexandre/Documents/Github/mips_5_stage/mux2.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux3.sv
+    Info (12023): Found entity 1: mux3 File: C:/Users/alexandre/Documents/Github/mips_5_stage/mux3.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file signext.sv
+    Info (12023): Found entity 1: signext File: C:/Users/alexandre/Documents/Github/mips_5_stage/signext.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file sl2.sv
+    Info (12023): Found entity 1: sl2 File: C:/Users/alexandre/Documents/Github/mips_5_stage/sl2.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file adder.sv
+    Info (12023): Found entity 1: adder File: C:/Users/alexandre/Documents/Github/mips_5_stage/adder.sv Line: 1
 Info (12127): Elaborating entity "mips_5_stage" for the top level hierarchy
-Info (12128): Elaborating entity "flopr" for hierarchy "flopr:pcreg" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 69
-Info (12128): Elaborating entity "imem" for hierarchy "imem:imem" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 71
-Warning (10850): Verilog HDL warning at mips_5_stage.sv(381): number of words (11) in memory file does not match the number of elements in the address range [0:63] File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 381
-Warning (10030): Net "RAM.data_a" at mips_5_stage.sv(380) has no driver or initial value, using a default initial value '0' File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 380
-Warning (10030): Net "RAM.waddr_a" at mips_5_stage.sv(380) has no driver or initial value, using a default initial value '0' File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 380
-Warning (10030): Net "RAM.we_a" at mips_5_stage.sv(380) has no driver or initial value, using a default initial value '0' File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 380
-Info (12128): Elaborating entity "controller" for hierarchy "controller:c" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 105
-Info (12128): Elaborating entity "maindec" for hierarchy "controller:c|maindec:md" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 316
-Info (12128): Elaborating entity "aludec" for hierarchy "controller:c|aludec:ad" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 317
-Info (12128): Elaborating entity "regfile" for hierarchy "regfile:rf" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 116
-Info (12128): Elaborating entity "mux3" for hierarchy "mux3:forward_a_mux" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 156
-Info (10264): Verilog HDL Case Statement information at mips_5_stage.sv(413): all case item expressions in this case statement are onehot File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 413
-Info (12128): Elaborating entity "mux2" for hierarchy "mux2:srcb_mux" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 159
-Info (12128): Elaborating entity "alu" for hierarchy "alu:alu" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 169
-Info (12128): Elaborating entity "mux2" for hierarchy "mux2:writereg_mux" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 171
-Info (12128): Elaborating entity "dmem" for hierarchy "dmem:dmem" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 209
-Info (12128): Elaborating entity "hazardunit" for hierarchy "hazardunit:hu" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 265
+Info (12128): Elaborating entity "flopr" for hierarchy "flopr:pcreg" File: C:/Users/alexandre/Documents/Github/mips_5_stage/mips_5_stage.sv Line: 60
+Info (12128): Elaborating entity "imem" for hierarchy "imem:imem" File: C:/Users/alexandre/Documents/Github/mips_5_stage/mips_5_stage.sv Line: 61
+Warning (10850): Verilog HDL warning at imem.sv(3): number of words (11) in memory file does not match the number of elements in the address range [0:63] File: C:/Users/alexandre/Documents/Github/mips_5_stage/imem.sv Line: 3
+Warning (10030): Net "RAM.data_a" at imem.sv(2) has no driver or initial value, using a default initial value '0' File: C:/Users/alexandre/Documents/Github/mips_5_stage/imem.sv Line: 2
+Warning (10030): Net "RAM.waddr_a" at imem.sv(2) has no driver or initial value, using a default initial value '0' File: C:/Users/alexandre/Documents/Github/mips_5_stage/imem.sv Line: 2
+Warning (10030): Net "RAM.we_a" at imem.sv(2) has no driver or initial value, using a default initial value '0' File: C:/Users/alexandre/Documents/Github/mips_5_stage/imem.sv Line: 2
+Info (12128): Elaborating entity "controller" for hierarchy "controller:c" File: C:/Users/alexandre/Documents/Github/mips_5_stage/mips_5_stage.sv Line: 89
+Info (12128): Elaborating entity "maindec" for hierarchy "controller:c|maindec:md" File: C:/Users/alexandre/Documents/Github/mips_5_stage/controller.sv Line: 3
+Info (12128): Elaborating entity "aludec" for hierarchy "controller:c|aludec:ad" File: C:/Users/alexandre/Documents/Github/mips_5_stage/controller.sv Line: 4
+Info (12128): Elaborating entity "regfile" for hierarchy "regfile:rf" File: C:/Users/alexandre/Documents/Github/mips_5_stage/mips_5_stage.sv Line: 100
+Info (12128): Elaborating entity "mux3" for hierarchy "mux3:forward_a_mux" File: C:/Users/alexandre/Documents/Github/mips_5_stage/mips_5_stage.sv Line: 132
+Info (10264): Verilog HDL Case Statement information at mux3.sv(4): all case item expressions in this case statement are onehot File: C:/Users/alexandre/Documents/Github/mips_5_stage/mux3.sv Line: 4
+Info (12128): Elaborating entity "mux2" for hierarchy "mux2:srcb_mux" File: C:/Users/alexandre/Documents/Github/mips_5_stage/mips_5_stage.sv Line: 135
+Info (12128): Elaborating entity "alu" for hierarchy "alu:alu" File: C:/Users/alexandre/Documents/Github/mips_5_stage/mips_5_stage.sv Line: 145
+Info (12128): Elaborating entity "mux2" for hierarchy "mux2:writereg_mux" File: C:/Users/alexandre/Documents/Github/mips_5_stage/mips_5_stage.sv Line: 147
+Info (12128): Elaborating entity "dmem" for hierarchy "dmem:dmem" File: C:/Users/alexandre/Documents/Github/mips_5_stage/mips_5_stage.sv Line: 176
+Info (12128): Elaborating entity "hazardunit" for hierarchy "hazardunit:hu" File: C:/Users/alexandre/Documents/Github/mips_5_stage/mips_5_stage.sv Line: 223
 Warning (276020): Inferred RAM node "regfile:rf|rf_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
 Warning (276020): Inferred RAM node "regfile:rf|rf_rtl_1" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
 Info (276014): Found 1 instances of uninferred RAM logic
-    Info (276007): RAM logic "dmem:dmem|RAM" is uninferred due to asynchronous read logic File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 386
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/alexa/Documents/GitHub/mips_5_stage/db/mips_5_stage.ram0_imem_37c714.hdl.mif" contains "don't care" values -- overwriting them with 0s
+    Info (276007): RAM logic "dmem:dmem|RAM" is uninferred due to asynchronous read logic File: C:/Users/alexandre/Documents/Github/mips_5_stage/dmem.sv Line: 2
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/alexandre/Documents/Github/mips_5_stage/db/mips_5_stage.ram0_imem_37c714.hdl.mif" contains "don't care" values -- overwriting them with 0s
 Info (19000): Inferred 2 megafunctions from design logic
     Info (276029): Inferred altsyncram megafunction from the following design logic: "regfile:rf|rf_rtl_0" 
         Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
@@ -1007,7 +1030,7 @@ Info (12133): Instantiated megafunction "regfile:rf|altsyncram:rf_rtl_0" with th
     Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
     Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_mcc1.tdf
-    Info (12023): Found entity 1: altsyncram_mcc1 File: C:/Users/alexa/Documents/GitHub/mips_5_stage/db/altsyncram_mcc1.tdf Line: 28
+    Info (12023): Found entity 1: altsyncram_mcc1 File: C:/Users/alexandre/Documents/Github/mips_5_stage/db/altsyncram_mcc1.tdf Line: 28
 Info (12130): Elaborated megafunction instantiation "regfile:rf|altsyncram:rf_rtl_1"
 Info (12133): Instantiated megafunction "regfile:rf|altsyncram:rf_rtl_1" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
@@ -1027,7 +1050,7 @@ Info (12133): Instantiated megafunction "regfile:rf|altsyncram:rf_rtl_1" with th
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 150 registers lost all their fanouts during netlist optimizations.
-Info (144001): Generated suppressed messages file C:/Users/alexa/Documents/GitHub/mips_5_stage/output_files/mips_5_stage.map.smsg
+Info (144001): Generated suppressed messages file C:/Users/alexandre/Documents/Github/mips_5_stage/output_files/mips_5_stage.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Info (21057): Implemented 812 device resources after synthesis - the final resource count might be different
@@ -1036,15 +1059,15 @@ Info (21057): Implemented 812 device resources after synthesis - the final resou
     Info (21061): Implemented 681 logic cells
     Info (21064): Implemented 64 RAM segments
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 9 warnings
-    Info: Peak virtual memory: 4846 megabytes
-    Info: Processing ended: Tue Jul 15 00:17:19 2025
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:14
+    Info: Peak virtual memory: 4781 megabytes
+    Info: Processing ended: Tue Jul 15 17:00:35 2025
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:30
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in C:/Users/alexa/Documents/GitHub/mips_5_stage/output_files/mips_5_stage.map.smsg.
+The suppressed messages can be found in C:/Users/alexandre/Documents/Github/mips_5_stage/output_files/mips_5_stage.map.smsg.
 
 

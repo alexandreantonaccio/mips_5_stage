@@ -30,7 +30,7 @@
 (DELAYFILE
   (SDFVERSION "2.1")
   (DESIGN "mips_5_stage")
-  (DATE "07/15/2025 00:17:31")
+  (DATE "07/15/2025 17:00:57")
   (VENDOR "Altera")
   (PROGRAM "Quartus Prime")
   (VERSION "Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition")
