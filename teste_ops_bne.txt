@@ -1,0 +1,15 @@
+20080005  // addi $t0, $0, 5
+20090003  // addi $t1, $0, 3
+01095020  // add  $t2, $t0, $t1
+01095822  // sub  $t3, $t0, $t1
+01096024  // and  $t4, $t0, $t1
+01096825  // or   $t5, $t0, $t1
+0109702a  // slt  $t6, $t0, $t1
+ac080020  // sw   $t0, 0x20($0)
+8c0f0020  // lw   $t7, 0x20($0)
+11090001  // beq  $t0, $t1, 1 (avança 1 instrução se igual)
+15090001  // bne  $t0, $t1, 1 (avança 1 instrução se diferente)
+00000000  // nop (instrução pulada)
+0800000d  // j    0x34 (jump para endereço 0x34)
+00000000  // nop (delay slot)
+ac090024  // sw   $t1, 0x24($0) [END]

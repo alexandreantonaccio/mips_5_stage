@@ -260,6 +260,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "memwrite_out",
+					"strict" : false
+				},
+				{
 					"name" : "reset",
 					"strict" : false
 				},

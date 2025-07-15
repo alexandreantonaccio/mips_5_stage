@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module tb_mips_forwarding();
+module tb_mips_beq();
 
     // Sinais para conectar ao DUT
     logic clk, reset;
@@ -32,17 +32,6 @@ module tb_mips_forwarding();
         reset = 0;
         #1;
 
-        // Pré-carrega valores nos registradores para um resultado previsível
-        // Este acesso direto só funciona em simulação
-        dut.rf.rf[17] = 10; // $s1 = 10
-        dut.rf.rf[18] = 20; // $s2 = 20
-        $display("Valores Iniciais: $s1=10, $s2=20");
-
-
-        // --- EXECUÇÃO ---
-        $display("\n====================================================================================================");
-        $display("--- Iniciando teste de Forwarding por %d ciclos ---", MAX_CYCLES);
-        $display("====================================================================================================");
         // CORREÇÃO: Cabeçalho atualizado para refletir os sinais que existem no DUT
         $display("Ciclo | PC_IF      | Instr_ID   | FwdA | FwdB | ALU_SrcA_EX| ALU_SrcB_EX| ALUOut_MEM | Result_WB");
         $display("----------------------------------------------------------------------------------------------------");
@@ -66,18 +55,15 @@ module tb_mips_forwarding();
         // --- VERIFICAÇÃO FINAL ---
         $display("\n=======================================================");
         $display("--- Simulação finalizada ---");
-        $display("Valor final em $s0 (reg 16): %d", dut.rf.rf[16]); // Esperado: 1
-        $display("Valor final em $s1 (reg 17): %d", dut.rf.rf[17]); // Esperado: 12
-        $display("Valor final em $s2 (reg 18): %d", dut.rf.rf[18]); // Esperado: 20 (inalterado)
-        $display("Valor final em $s3 (reg 19): %d", dut.rf.rf[19]); // Esperado: 32
-
-        if (dut.rf.rf[16] == 1 && dut.rf.rf[17] == 12 && dut.rf.rf[19] == 32) begin
-            $display("\n>>> SUCESSO: O Forwarding funcionou e os valores nos registradores estão corretos!");
-        end else begin
-            $display("\n>>> FALHA: Valores incorretos nos registradores!");
-        end
-        $display("=======================================================\n");
-
+        $display("Valor final em $t0 : %d", dut.rf.rf[8]);
+        $display("Valor final em $t1 : %d", dut.rf.rf[9]);
+        $display("Valor final em $t2 : %d", dut.rf.rf[10]);
+        $display("Valor final em $t3 : %d", dut.rf.rf[11]); 
+		  $display("Valor final em $t4 : %d", dut.rf.rf[12]); 
+		  $display("Valor final em $t5 : %d", dut.rf.rf[13]); 
+		  $display("Valor final em $t6 : %d", dut.rf.rf[14]); 
+		  $display("Valor final em $t7 : %d", dut.rf.rf[15]); 
+		  $display("Valor final em mem : %d", dut.dmem.RAM[9]);
         $finish;
     end
 

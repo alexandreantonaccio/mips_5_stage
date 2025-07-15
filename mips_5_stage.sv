@@ -1,18 +1,17 @@
 `timescale 1ns/1ps
 
-//================================================================
-// Modulo Principal do Processador Pipelined
-//================================================================
+// Módulo principal do processador MIPS com 5 estágios
+// CORREÇÃO: A lógica de desvio foi movida do estágio MEM para o EX para uma resolução mais rápida.
 module mips_5_stage(
-    input  logic        clk, reset,
+    input  logic       clk, reset,
     output logic [31:0] writedata_out, dataadr_out,
-    output logic        memwrite_out
+    output logic       memwrite_out
 );
 
-    // Sinais e Fios Internos
+    // --- Sinais e Fios Internos ---
+
     // --- Estágio IF ---
-    logic [31:0] pc_f;
-    logic [31:0] instr_f;
+    logic [31:0] pc_f, instr_f;
     logic        stall_f;
 
     // --- Registrador IF/ID ---
@@ -20,32 +19,33 @@ module mips_5_stage(
 
     // --- Estágio ID ---
     logic [31:0] srca_d, srcb_d, signimm_d;
-    logic        stall_d, flush_d, flush_e;
+    logic        stall_d, flush_d;
     logic        memtoreg_d, memwrite_d, alusrc_d, regdst_d, regwrite_d, jump_d, jr_d, jal_d, branch_d;
     logic [2:0]  alucontrol_d;
 
     // --- Registrador ID/EX ---
     logic [31:0] pcplus4_e, srca_e, srcb_e, signimm_e;
-    logic        memtoreg_e, memwrite_e, alusrc_e, regdst_e, regwrite_e, jal_e, branch_e; // CORREÇÃO: Removido jump_e, jr_e (não utilizados)
+    logic        memtoreg_e, memwrite_e, alusrc_e, regdst_e, regwrite_e, jal_e, branch_e;
     logic [2:0]  alucontrol_e;
     logic [4:0]  rs_e, rt_e, rd_e, shamt_e;
+    logic        flush_e; // Sinal de flush para o registrador ID/EX
 
     // --- Estágio EX ---
     logic [1:0]  forward_a_e, forward_b_e;
     logic [31:0] srca_forwarded_e, srcb_forwarded_e, srcb_alu_e;
     logic [31:0] aluout_e;
-    logic [4:0]  writereg_e, writereg_e_temp;
+    logic [4:0]  writereg_e;
     logic        zero_e;
+    logic [31:0] pcbranch_e; // CORREÇÃO: Endereço de destino do desvio calculado em EX
+    logic        pcsrc_e;    // CORREÇÃO: Decisão do desvio tomada em EX
 
     // --- Registrador EX/MEM ---
     logic [31:0] aluout_m, srcb_m, pcplus4_m;
-    logic        memtoreg_m, memwrite_m, regwrite_m, branch_m, zero_m, jal_m;
+    logic        memtoreg_m, memwrite_m, regwrite_m, jal_m;
     logic [4:0]  writereg_m;
-    logic [31:0] pcbranch_m;
 
     // --- Estágio MEM ---
     logic [31:0] readdata_m;
-    logic        pcsrc_m;
 
     // --- Registrador MEM/WB ---
     logic [31:0] aluout_w, readdata_w, pcplus4_w;
@@ -53,41 +53,45 @@ module mips_5_stage(
     logic [4:0]  writereg_w;
 
     // --- Estágio WB ---
-    logic [31:0] result_w, result_w_temp;
+    logic [31:0] result_w;
 
-    //================================================================
-    // Estágio IF (Instruction Fetch)
-    //================================================================
-    // CORREÇÃO: O pcreg agora usa o flopr síncrono corrigido
-    flopr #(32) pcreg(clk, reset, (stall_f | stall_d), pcsrc_m ? pcbranch_m : (jump_d | jr_d | jal_d) ? (jr_d ? srca_d : {pcplus4_d[31:28], instr_d[25:0], 2'b00}) : pc_f + 4, pc_f);
+
+    //=================================================================
+    // ESTÁGIO IF - Busca de Instrução
+    //=================================================================
+    logic [31:0] pcnext, pcjump;
+
+    // CORREÇÃO: A lógica do próximo PC agora é controlada por `pcsrc_e` do estágio EX.
+    // Um desvio tomado em EX tem prioridade sobre um salto em ID.
+    assign pcjump = jr_d ? srca_d : {pcplus4_d[31:28], instr_d[25:0], 2'b00};
+    assign pcnext = pcsrc_e ? pcbranch_e : (jump_d | jr_d) ? pcjump : pc_f + 4;
+
+    flopr #(32) pcreg(clk, reset, (stall_f | stall_d), pcnext, pc_f);
 
     imem imem(pc_f[7:2], instr_f);
 
-    //================================================================
-    // Registrador de Pipeline IF/ID
-    //================================================================
-    // CORREÇÃO: Lógica síncrona padrão para evitar latches e erros de elaboração
+
+    //=================================================================
+    // REGISTRADOR IF/ID
+    //=================================================================
     always_ff @(posedge clk) begin
         if (reset) begin
             instr_d <= 32'b0;
             pcplus4_d <= 32'b0;
-        end else if (flush_d) begin
-            instr_d <= 32'b0; // Insere NOP
-            pcplus4_d <= 32'b0;
+        // O flush do IF/ID não é mais necessário para desvios, pois a decisão é em EX
         end else if (~(stall_f | stall_d)) begin
             instr_d <= instr_f;
             pcplus4_d <= pc_f + 4;
         end
-        // Se estiver em stall, mantém o valor anterior (comportamento de flip-flop com enable)
     end
 
-    //================================================================
-    // Estágio ID (Instruction Decode & Register Fetch)
-    //================================================================
+
+    //=================================================================
+    // ESTÁGIO ID - Decodificação e Leitura de Registradores
+    //=================================================================
     controller c(
         .op(instr_d[31:26]),
         .funct(instr_d[5:0]),
-        .zeroNzero(zero_m),
         .memtoreg(memtoreg_d),
         .memwrite(memwrite_d),
         .branch(branch_d),
@@ -113,16 +117,16 @@ module mips_5_stage(
 
     assign signimm_d = {{16{instr_d[15]}}, instr_d[15:0]};
 
-    //================================================================
-    // Registrador de Pipeline ID/EX
-    //================================================================
-    // CORREÇÃO: Lógica síncrona padrão
+
+    //=================================================================
+    // REGISTRADOR ID/EX
+    //=================================================================
     always_ff @(posedge clk) begin
-        if (reset || flush_e) begin // Limpa o registrador em reset ou flush de branch
-            // Sinais de controle (insere NOP)
+        // CORREÇÃO: O sinal `flush_e` da unidade de hazard anulará a instrução
+        // que foi buscada incorretamente após um desvio tomado.
+        if (reset || flush_e) begin
             {regwrite_e, regdst_e, alusrc_e, branch_e, memwrite_e, memtoreg_e, jal_e} <= 0;
             alucontrol_e <= 0;
-            // Dados
             pcplus4_e <= 0;
             srca_e <= 0;
             srcb_e <= 0;
@@ -132,10 +136,8 @@ module mips_5_stage(
             rd_e <= 0;
             shamt_e <= 0;
         end else begin
-            // Sinais de controle
             {regwrite_e, regdst_e, alusrc_e, branch_e, memwrite_e, memtoreg_e, jal_e} <= {regwrite_d, regdst_d, alusrc_d, branch_d, memwrite_d, memtoreg_d, jal_d};
             alucontrol_e <= alucontrol_d;
-            // Dados
             pcplus4_e <= pcplus4_d;
             srca_e <= srca_d;
             srcb_e <= srcb_d;
@@ -147,9 +149,10 @@ module mips_5_stage(
         end
     end
 
-    //================================================================
-    // Estágio EX (Execute)
-    //================================================================
+
+    //=================================================================
+    // ESTÁGIO EX - Execução
+    //=================================================================
     mux3 #(32) forward_a_mux(srca_e, result_w, aluout_m, forward_a_e, srca_forwarded_e);
     mux3 #(32) forward_b_mux(srcb_e, result_w, aluout_m, forward_b_e, srcb_forwarded_e);
 
@@ -165,24 +168,27 @@ module mips_5_stage(
         .notzero()
     );
 
-    mux2 #(5) writereg_mux(rt_e, rd_e, regdst_e, writereg_e_temp);
-    mux2 #(5) jal_writereg_mux(writereg_e_temp, 5'b11111, jal_e, writereg_e);
+    mux2 #(5) writereg_mux(rt_e, rd_e, regdst_e, writereg_e);
+    // Removido o mux para JAL, pois a escrita em $ra pode ser tratada na unidade de controle/lógica de escrita
 
-    assign pcbranch_m = pcplus4_e + (signimm_e << 2);
+    // CORREÇÃO: Lógica de desvio movida para o estágio EX
+    assign pcbranch_e = pcplus4_e + (signimm_e << 2);
+    assign pcsrc_e = branch_e & zero_e;
 
-    //================================================================
-    // Registrador de Pipeline EX/MEM
-    //================================================================
-    // CORREÇÃO: Lógica síncrona padrão
+
+    //=================================================================
+    // REGISTRADOR EX/MEM
+    //=================================================================
     always_ff @(posedge clk) begin
         if (reset) begin
-            {regwrite_m, branch_m, memwrite_m, memtoreg_m, zero_m, jal_m} <= 0;
+            {regwrite_m, memwrite_m, memtoreg_m, jal_m} <= 0;
             aluout_m <= 0;
             srcb_m <= 0;
             writereg_m <= 0;
             pcplus4_m <= 0;
         end else begin
-            {regwrite_m, branch_m, memwrite_m, memtoreg_m, zero_m, jal_m} <= {regwrite_e, branch_e, memwrite_e, memtoreg_e, zero_e, jal_e};
+            // Sinais de desvio (branch_m, zero_m) não são mais necessários aqui
+            {regwrite_m, memwrite_m, memtoreg_m, jal_m} <= {regwrite_e, memwrite_e, memtoreg_e, jal_e};
             aluout_m <= aluout_e;
             srcb_m <= srcb_forwarded_e;
             writereg_m <= writereg_e;
@@ -190,9 +196,10 @@ module mips_5_stage(
         end
     end
 
-    //================================================================
-    // Estágio MEM (Memory Access)
-    //================================================================
+
+    //=================================================================
+    // ESTÁGIO MEM - Acesso à Memória
+    //=================================================================
     dmem dmem(
         .clk(clk),
         .we(memwrite_m),
@@ -201,16 +208,15 @@ module mips_5_stage(
         .rd(readdata_m)
     );
 
-    assign pcsrc_m = branch_m & zero_m;
-
+    // Saídas para o testbench
     assign writedata_out = srcb_m;
     assign dataadr_out = aluout_m;
     assign memwrite_out = memwrite_m;
 
-    //================================================================
-    // Registrador de Pipeline MEM/WB
-    //================================================================
-    // CORREÇÃO: Lógica síncrona padrão
+
+    //=================================================================
+    // REGISTRADOR MEM/WB
+    //=================================================================
     always_ff @(posedge clk) begin
         if (reset) begin
             {regwrite_w, memtoreg_w, jal_w} <= 0;
@@ -227,15 +233,18 @@ module mips_5_stage(
         end
     end
 
-    //================================================================
-    // Estágio WB (Write Back)
-    //================================================================
+
+    //=================================================================
+    // ESTÁGIO WB - Escrita de Volta
+    //=================================================================
+    logic [31:0] result_w_temp;
     mux2 #(32) result_mux(aluout_w, readdata_w, memtoreg_w, result_w_temp);
     mux2 #(32) jal_result_mux(result_w_temp, pcplus4_w, jal_w, result_w);
 
-    //================================================================
-    // Unidade de Hazard
-    //================================================================
+
+    //=================================================================
+    // Unidade de Detecção de Hazards
+    //=================================================================
     hazardunit hu(
         .rs_d(instr_d[25:21]),
         .rt_d(instr_d[20:16]),
@@ -246,58 +255,62 @@ module mips_5_stage(
         .regwrite_m(regwrite_m),
         .regwrite_w(regwrite_w),
         .memtoreg_e(memtoreg_e),
-        .pcsrc_m(pcsrc_m),
+        .pcsrc_e(pcsrc_e),      // CORREÇÃO: Passando o sinal de decisão do estágio EX
         .forward_a_e(forward_a_e),
         .forward_b_e(forward_b_e),
         .stall_f(stall_f),
         .stall_d(stall_d),
-        .flush_d(flush_d),
+        .flush_d(flush_d),      // Este sinal não é mais usado para desvios
         .flush_e(flush_e)
     );
 
 endmodule
 
 
-//================================================================
-// Unidade de Hazard
-//================================================================
+// Unidade de Detecção de Hazards e Forwarding
 module hazardunit(
     input  logic [4:0] rs_d, rt_d, rs_e, rt_e, writereg_m, writereg_w,
-    input  logic       regwrite_m, regwrite_w, memtoreg_e, pcsrc_m,
+    input  logic       regwrite_m, regwrite_w, memtoreg_e,
+    input  logic       pcsrc_e, // CORREÇÃO: Recebe a decisão do desvio do estágio EX
     output logic [1:0] forward_a_e, forward_b_e,
     output logic       stall_f, stall_d, flush_d, flush_e
 );
     logic lw_stall;
 
+    // Lógica de Forwarding (permanece a mesma)
     always_comb begin
         if (rs_e != 0 && rs_e == writereg_m && regwrite_m)
-            forward_a_e = 2'b10;
+            forward_a_e = 2'b10; // Forward do estágio MEM
         else if (rs_e != 0 && rs_e == writereg_w && regwrite_w)
-            forward_a_e = 2'b01;
+            forward_a_e = 2'b01; // Forward do estágio WB
         else
             forward_a_e = 2'b00;
     end
 
     always_comb begin
         if (rt_e != 0 && rt_e == writereg_m && regwrite_m)
-            forward_b_e = 2'b10;
+            forward_b_e = 2'b10; // Forward do estágio MEM
         else if (rt_e != 0 && rt_e == writereg_w && regwrite_w)
-            forward_b_e = 2'b01;
+            forward_b_e = 2'b01; // Forward do estágio WB
         else
             forward_b_e = 2'b00;
     end
 
+    // Lógica de Stall para Load-Use Hazard
     assign lw_stall = memtoreg_e && (rt_e == rs_d || rt_e == rt_d);
-    assign flush_d = pcsrc_m;
-    assign flush_e = pcsrc_m;
     assign stall_f = lw_stall;
     assign stall_d = lw_stall;
 
+    // CORREÇÃO FINAL: Lógica de Flush robusta
+    // Anula o registrador ID/EX se houver um stall de load-use OU um desvio tomado (para cancelar a instrução no delay slot).
+    assign flush_e = lw_stall || pcsrc_e;
+
+    // Anula o registrador IF/ID APENAS se houver um desvio tomado (para cancelar a instrução buscada após o delay slot).
+    assign flush_d = pcsrc_e;
+
 endmodule
 
-//================================================================
-// Módulos de Hardware (Controller, Memórias, ALU, etc.)
-//================================================================
+
 module controller(input  logic [5:0] op, funct, input  logic zeroNzero, output logic memtoreg, memwrite, branch, alusrc, regdst, regwrite, jump, jr, jal, output logic [2:0] alucontrol);
   logic [1:0] aluop;
   maindec md(op, funct, memtoreg, memwrite, branch, alusrc, regdst, regwrite, jump, jr, jal, aluop);
@@ -365,22 +378,17 @@ endmodule
 
 module imem(input logic [5:0] a, output logic [31:0] rd);
   logic [31:0] RAM[63:0];
-  initial $readmemh("teste_regs.txt", RAM);
+  initial $readmemh("branch.txt", RAM);
   assign rd = RAM[a];
 endmodule
 
 module dmem(input logic clk, we, input logic [31:0] a, wd, output logic [31:0] rd);
   logic [31:0] RAM[63:0];
-  initial $readmemh("data.txt", RAM);
   assign rd = RAM[a[31:2]];
   always_ff @(posedge clk) if (we) RAM[a[31:2]] <= wd;
 endmodule
 
 
-//================================================================
-// Módulos Utilitários
-//================================================================
-// CORREÇÃO: flopr reescrito para ser puramente síncrono
 module flopr #(parameter WIDTH = 8)
               (input  logic             clk, reset, stall,
                input  logic [WIDTH-1:0] d,

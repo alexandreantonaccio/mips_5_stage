@@ -1,0 +1,11 @@
+20080001 //	ADDI $t0 $zero 0x1
+20120002 //	ADDI $s2 $zero 0x2
+02484822 //	SUB $t1 $s2 $t0 //$t1 should have 1
+11120004 //	BEQ $t0 $s2 0x4 //not taken
+11090005 //	BEQ $t0 $t1 0x5 //taken
+20100001 //	ADDI $s0 $zero 0x1
+22100001 //	ADDI $s0 $s0 0x1
+22100001 //	ADDI $s0 $s0 0x1
+22100001 //	ADDI $s0 $s0 0x1
+22100001 //	ADDI $s0 $s0 0x1
+20110005 //	ADDI $s1 $zero 0x5 //BEQ will go to here

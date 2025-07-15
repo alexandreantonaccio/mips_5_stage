@@ -11,292 +11,292 @@ cModel Technology
 Z0 dC:/Users/alexa/Documents/GitHub/mips_5_stage
 valu
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1752455459
+Z2 !s110 1752553094
 !i10b 1
-!s100 kkUfVXV2;aOa1bmS9_z]G3
+!s100 foZ;?OoZznXD4XiB^lVYk3
 Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
-IV`8fc4?J[PfX3C64KWQOk3
+IeFO^C`;RKYBzo[CHKF>cN0
 Z4 VDg1SIo80bB@j0V0VzS_@n1
 S1
 R0
-Z5 w1752455414
+Z5 w1752553030
 Z6 8mips_5_stage.sv
 Z7 Fmips_5_stage.sv
-!i122 7
-L0 351 14
+!i122 15
+L0 364 14
 Z8 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z9 !s108 1752455459.000000
-Z10 !s107 tb_mips.sv|mips_5_stage.sv|
-Z11 !s90 -reportprogress|300|mips_5_stage.sv|tb_mips.sv|
+Z9 !s108 1752553093.000000
+!s107 tb_mips_load_word.sv|tb_mips_branch.sv|tb_mips.sv|mips_5_stage.sv|
+Z10 !s90 -reportprogress|300|mips_5_stage.sv|tb_mips.sv|tb_mips_branch.sv|tb_mips_load_word.sv|
 !i113 1
-Z12 tCvgOpt 0
+Z11 tCvgOpt 0
 valudec
 R1
 R2
 !i10b 1
-!s100 V:H4[nMICBYKj[XjkFjX=0
+!s100 zZS=ej@CZEhL0Y;en<E0N1
 R3
-I?QCWoVVRi`jO]`=PVI[bX2
+Ih?c0KA:8YZeO>RYXSnfcb1
 R4
 S1
 R0
 R5
 R6
 R7
-!i122 7
-L0 325 18
+!i122 15
+L0 338 18
 R8
 r1
 !s85 0
 31
 R9
+Z12 !s107 tb_mips_load_word.sv|tb_mips_branch.sv|tb_mips.sv|mips_5_stage.sv|
 R10
-R11
 !i113 1
-R12
+R11
 vcontroller
 R1
 R2
 !i10b 1
-!s100 jIl=F^2Z3l2`n=7bnCjfD3
+!s100 IEP2?5NKj:Ph8R5TQMR@63
 R3
-IAR=f?BZAonEG;fMKH1DiS0
+I7216P_g3?]mf7J>F_T=cj1
 R4
 S1
 R0
 R5
 R6
 R7
-!i122 7
-L0 301 5
+!i122 15
+L0 314 5
 R8
 r1
 !s85 0
 31
 R9
-R10
-R11
-!i113 1
 R12
+R10
+!i113 1
+R11
 vdmem
 R1
 R2
 !i10b 1
-!s100 CM5l=@l99;AoPmEXOd4F03
+!s100 8B;M53QX1n_:Ma1=`VjH62
 R3
-If2GGE^cH5b9z6SQkWXWRz1
+IJdz>V0REFgKm`OcWzUIkT3
 R4
 S1
 R0
 R5
 R6
 R7
-!i122 7
-L0 372 6
+!i122 15
+L0 385 5
 R8
 r1
 !s85 0
 31
 R9
-R10
-R11
-!i113 1
 R12
+R10
+!i113 1
+R11
 vflopr
 R1
 R2
 !i10b 1
-!s100 @oK9DOf6A5S=;2gf[iJ5J1
+!s100 >eF=<SnQ6GXHo?odjV0002
 R3
-IhZQH9WEQ_k1CXSTEkYg192
+IVaN9W2Vg@>>Sj5o:bm>8`3
 R4
 S1
 R0
 R5
 R6
 R7
-!i122 7
-L0 384 12
+!i122 15
+L0 392 12
 R8
 r1
 !s85 0
 31
 R9
-R10
-R11
-!i113 1
 R12
+R10
+!i113 1
+R11
 vhazardunit
 R1
 R2
 !i10b 1
-!s100 ^9V`64EBa08cOj:B:h3_U0
+!s100 ca]`aC[Hdb9fzbZM>ALzl0
 R3
-I7gYXTYgT5l4L7JN4fkRF=3
+IOe]gU09zJhBKLezh9oc>j2
 R4
 S1
 R0
 R5
 R6
 R7
-!i122 7
-L0 264 33
+!i122 15
+L0 271 41
 R8
 r1
 !s85 0
 31
 R9
-R10
-R11
-!i113 1
 R12
+R10
+!i113 1
+R11
 vimem
 R1
 R2
 !i10b 1
-!s100 8eCIL]4j:85heeo@[?4:U0
+!s100 KAc_dchJEKge6J:dE^P;W2
 R3
-IQ2H_`N>UeW`ncGS^FT`Lz3
+IcNL[EgDER8kWAPGjaGWo^3
 R4
 S1
 R0
 R5
 R6
 R7
-!i122 7
-L0 366 5
+!i122 15
+L0 379 5
 R8
 r1
 !s85 0
 31
 R9
-R10
-R11
-!i113 1
 R12
+R10
+!i113 1
+R11
 vmaindec
 R1
 R2
 !i10b 1
-!s100 iRgZk`_WGiQo8<8KMlVeb0
+!s100 6gEc<b:=:EF2QB_RJ8IC;1
 R3
-I4H8WHfFj[zJGY0cJQW_fN2
+I0>SlD9`19[FUa6TgQkbfP1
 R4
 S1
 R0
 R5
 R6
 R7
-!i122 7
-L0 307 17
+!i122 15
+L0 320 17
 R8
 r1
 !s85 0
 31
 R9
-R10
-R11
-!i113 1
 R12
+R10
+!i113 1
+R11
 vmips_5_stage
 R1
-R2
+!s110 1752553093
 !i10b 1
-!s100 ;4YZoGVNM1zAbMh>1obo;0
+!s100 kdQOfRGQfW:E<QizdCCio1
 R3
-ID2FhI1^fh:e]`OVSiYNUA1
+I[aJlQNmhClGg0N]TF=kI33
 R4
 S1
 R0
 R5
 R6
 R7
-!i122 7
-L0 6 253
+!i122 15
+L0 5 263
 R8
 r1
 !s85 0
 31
 R9
-R10
-R11
-!i113 1
 R12
+R10
+!i113 1
+R11
 vmux2
 R1
 R2
 !i10b 1
-!s100 `L3SNll77I[8U7[:X>nM52
+!s100 1kLo`N1DPSmcgH[UcY?HA1
 R3
-I`USe]W:=jGS^E5]4:@O2O1
+IRGTJ:^SP:ncc=UK;h0QZ73
 R4
 S1
 R0
 R5
 R6
 R7
-!i122 7
-L0 397 4
+!i122 15
+L0 405 4
 R8
 r1
 !s85 0
 31
 R9
-R10
-R11
-!i113 1
 R12
+R10
+!i113 1
+R11
 vmux3
 R1
 R2
 !i10b 1
-!s100 K?djSGDMG@MfQcmHmXY:f1
+!s100 1UaElIiFYIX?78Bj?D35R2
 R3
-IY[;_0C>lgjWNnI1CRXKQo2
+IW_PI>P;Vb>n<Y`ZNzMO5a2
 R4
 S1
 R0
 R5
 R6
 R7
-!i122 7
-L0 402 9
+!i122 15
+L0 410 9
 R8
 r1
 !s85 0
 31
 R9
-R10
-R11
-!i113 1
 R12
+R10
+!i113 1
+R11
 vregfile
 R1
 R2
 !i10b 1
-!s100 VHz<c]7`hWK<?oLNcH6jd1
+!s100 FiV`hlibEidTF=`8SF4EH2
 R3
-Iod=m5JgeYb=V>AKAk?XCP2
+IlLhl?B=WAe@8e=dNcA]AD1
 R4
 S1
 R0
 R5
 R6
 R7
-!i122 7
-L0 344 6
+!i122 15
+L0 357 6
 R8
 r1
 !s85 0
 31
 R9
-R10
-R11
-!i113 1
 R12
+R10
+!i113 1
+R11
 vtb_mips
 R1
 !s110 1752359992
@@ -317,13 +317,61 @@ r1
 !s85 0
 31
 !s108 1752359992.000000
-R10
-R11
+Z15 !s107 tb_mips.sv|mips_5_stage.sv|
+Z16 !s90 -reportprogress|300|mips_5_stage.sv|tb_mips.sv|
 !i113 1
-R12
-vtb_mips_forwarding
+R11
+vtb_mips_beq
 R1
 R2
+!i10b 1
+!s100 ioYg>fHB24hUXFJTl[g]V0
+R3
+I5]ZWKW8GAgjMbQcCe9W7j1
+R4
+S1
+R0
+w1752545519
+R13
+R14
+!i122 15
+L0 3 68
+R8
+r1
+!s85 0
+31
+R9
+R12
+R10
+!i113 1
+R11
+vtb_mips_branch
+R1
+R2
+!i10b 1
+!s100 ]a92d`Qh7e5NT8CS5WGfh2
+R3
+IHE@f[UVLB81gl:NA8f:P41
+R4
+S1
+R0
+w1752551448
+8tb_mips_branch.sv
+Ftb_mips_branch.sv
+!i122 15
+L0 3 70
+R8
+r1
+!s85 0
+31
+R9
+R12
+R10
+!i113 1
+R11
+vtb_mips_forwarding
+R1
+!s110 1752455459
 !i10b 1
 !s100 zIJ2ARg=JGDcQTm9m2KIA1
 R3
@@ -340,11 +388,11 @@ R8
 r1
 !s85 0
 31
-R9
-R10
-R11
+!s108 1752455459.000000
+R15
+R16
 !i113 1
-R12
+R11
 vtb_mips_jal
 R1
 !s110 1752360644
@@ -365,7 +413,31 @@ r1
 !s85 0
 31
 !s108 1752360644.000000
-R10
-R11
+R15
+R16
 !i113 1
+R11
+vtb_mips_load_word
+R1
+R2
+!i10b 1
+!s100 [JGT>IdYl;Nh?n[0Lf@m@0
+R3
+INmJZ>=EiDiA3a?nLdNRVY0
+R4
+S1
+R0
+w1752547785
+8tb_mips_load_word.sv
+Ftb_mips_load_word.sv
+!i122 15
+L0 3 77
+R8
+r1
+!s85 0
+31
+R9
 R12
+R10
+!i113 1
+R11

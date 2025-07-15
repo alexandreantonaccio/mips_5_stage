@@ -1,5 +1,5 @@
 Analysis & Synthesis report for mips_5_stage
-Sun Jul 13 21:10:22 2025
+Tue Jul 15 00:17:19 2025
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -26,14 +26,14 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
  18. Parameter Settings for User Entity Instance: mux3:forward_b_mux
  19. Parameter Settings for User Entity Instance: mux2:srcb_mux
  20. Parameter Settings for User Entity Instance: mux2:writereg_mux
- 21. Parameter Settings for User Entity Instance: mux2:jal_writereg_mux
- 22. Parameter Settings for User Entity Instance: mux2:result_mux
- 23. Parameter Settings for User Entity Instance: mux2:jal_result_mux
- 24. Parameter Settings for Inferred Entity Instance: regfile:rf|altsyncram:rf_rtl_0
- 25. Parameter Settings for Inferred Entity Instance: regfile:rf|altsyncram:rf_rtl_1
- 26. altsyncram Parameter Settings by Entity Instance
- 27. Port Connectivity Checks: "mux2:jal_writereg_mux"
- 28. Port Connectivity Checks: "alu:alu"
+ 21. Parameter Settings for User Entity Instance: mux2:result_mux
+ 22. Parameter Settings for User Entity Instance: mux2:jal_result_mux
+ 23. Parameter Settings for Inferred Entity Instance: regfile:rf|altsyncram:rf_rtl_0
+ 24. Parameter Settings for Inferred Entity Instance: regfile:rf|altsyncram:rf_rtl_1
+ 25. altsyncram Parameter Settings by Entity Instance
+ 26. Port Connectivity Checks: "hazardunit:hu"
+ 27. Port Connectivity Checks: "alu:alu"
+ 28. Port Connectivity Checks: "controller:c"
  29. Post-Synthesis Netlist Statistics for Top Partition
  30. Elapsed Time Per Partition
  31. Analysis & Synthesis Messages
@@ -64,15 +64,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Jul 13 21:10:22 2025       ;
+; Analysis & Synthesis Status        ; Successful - Tue Jul 15 00:17:19 2025       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; mips_5_stage                                ;
 ; Top-level Entity Name              ; mips_5_stage                                ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 630                                         ;
-;     Total combinational functions  ; 554                                         ;
-;     Dedicated logic registers      ; 271                                         ;
-; Total registers                    ; 271                                         ;
+; Total logic elements               ; 673                                         ;
+;     Total combinational functions  ; 593                                         ;
+;     Dedicated logic registers      ; 299                                         ;
+; Total registers                    ; 299                                         ;
 ; Total pins                         ; 67                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 2,048                                       ;
@@ -196,8 +196,7 @@ https://fpgasoftware.intel.com/eula.
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                 ; Library ;
 +----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
 ; mips_5_stage.sv                  ; yes             ; User SystemVerilog HDL File  ; C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv                 ;         ;
-; teste_regs.txt                   ; yes             ; Auto-Found File              ; C:/Users/alexa/Documents/GitHub/mips_5_stage/teste_regs.txt                  ;         ;
-; data.txt                         ; yes             ; Auto-Found File              ; C:/Users/alexa/Documents/GitHub/mips_5_stage/data.txt                        ;         ;
+; branch.txt                       ; yes             ; Auto-Found File              ; C:/Users/alexa/Documents/GitHub/mips_5_stage/branch.txt                      ;         ;
 ; altsyncram.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
 ; stratix_ram_block.inc            ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
 ; lpm_mux.inc                      ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
@@ -216,20 +215,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 630       ;
+; Estimated Total logic elements              ; 673       ;
 ;                                             ;           ;
-; Total combinational functions               ; 554       ;
+; Total combinational functions               ; 593       ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 229       ;
-;     -- 3 input functions                    ; 230       ;
-;     -- <=2 input functions                  ; 95        ;
+;     -- 4 input functions                    ; 226       ;
+;     -- 3 input functions                    ; 251       ;
+;     -- <=2 input functions                  ; 116       ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 486       ;
-;     -- arithmetic mode                      ; 68        ;
+;     -- normal mode                          ; 520       ;
+;     -- arithmetic mode                      ; 73        ;
 ;                                             ;           ;
-; Total registers                             ; 271       ;
-;     -- Dedicated logic registers            ; 271       ;
+; Total registers                             ; 299       ;
+;     -- Dedicated logic registers            ; 299       ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
 ; I/O pins                                    ; 67        ;
@@ -238,9 +237,9 @@ https://fpgasoftware.intel.com/eula.
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 335       ;
-; Total fan-out                               ; 3246      ;
-; Average fan-out                             ; 3.17      ;
+; Maximum fan-out                             ; 363       ;
+; Total fan-out                               ; 3562      ;
+; Average fan-out                             ; 3.27      ;
 +---------------------------------------------+-----------+
 
 
@@ -249,17 +248,17 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                         ; Entity Name     ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------+-----------------+--------------+
-; |mips_5_stage                             ; 554 (258)           ; 271 (188)                 ; 2048        ; 0            ; 0       ; 0         ; 67   ; 0            ; |mips_5_stage                                                               ; mips_5_stage    ; work         ;
-;    |alu:alu|                              ; 109 (109)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mips_5_stage|alu:alu                                                       ; alu             ; work         ;
+; |mips_5_stage                             ; 593 (243)           ; 299 (212)                 ; 2048        ; 0            ; 0       ; 0         ; 67   ; 0            ; |mips_5_stage                                                               ; mips_5_stage    ; work         ;
+;    |alu:alu|                              ; 166 (166)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mips_5_stage|alu:alu                                                       ; alu             ; work         ;
 ;    |controller:c|                         ; 2 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mips_5_stage|controller:c                                                  ; controller      ; work         ;
-;       |maindec:md|                        ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mips_5_stage|controller:c|maindec:md                                       ; maindec         ; work         ;
+;       |aludec:ad|                         ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mips_5_stage|controller:c|aludec:ad                                        ; aludec          ; work         ;
 ;    |flopr:pcreg|                          ; 6 (6)               ; 6 (6)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mips_5_stage|flopr:pcreg                                                   ; flopr           ; work         ;
-;    |hazardunit:hu|                        ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mips_5_stage|hazardunit:hu                                                 ; hazardunit      ; work         ;
-;    |imem:imem|                            ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mips_5_stage|imem:imem                                                     ; imem            ; work         ;
-;    |mux2:srcb_mux|                        ; 33 (33)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mips_5_stage|mux2:srcb_mux                                                 ; mux2            ; work         ;
+;    |hazardunit:hu|                        ; 13 (13)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mips_5_stage|hazardunit:hu                                                 ; hazardunit      ; work         ;
+;    |imem:imem|                            ; 13 (13)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mips_5_stage|imem:imem                                                     ; imem            ; work         ;
+;    |mux2:srcb_mux|                        ; 32 (32)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mips_5_stage|mux2:srcb_mux                                                 ; mux2            ; work         ;
 ;    |mux3:forward_a_mux|                   ; 65 (65)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mips_5_stage|mux3:forward_a_mux                                            ; mux3            ; work         ;
-;    |mux3:forward_b_mux|                   ; 56 (56)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mips_5_stage|mux3:forward_b_mux                                            ; mux3            ; work         ;
-;    |regfile:rf|                           ; 9 (9)               ; 77 (77)                   ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |mips_5_stage|regfile:rf                                                    ; regfile         ; work         ;
+;    |mux3:forward_b_mux|                   ; 39 (39)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mips_5_stage|mux3:forward_b_mux                                            ; mux3            ; work         ;
+;    |regfile:rf|                           ; 14 (14)             ; 81 (81)                   ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |mips_5_stage|regfile:rf                                                    ; regfile         ; work         ;
 ;       |altsyncram:rf_rtl_0|               ; 0 (0)               ; 0 (0)                     ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |mips_5_stage|regfile:rf|altsyncram:rf_rtl_0                                ; altsyncram      ; work         ;
 ;          |altsyncram_mcc1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |mips_5_stage|regfile:rf|altsyncram:rf_rtl_0|altsyncram_mcc1:auto_generated ; altsyncram_mcc1 ; work         ;
 ;       |altsyncram:rf_rtl_1|               ; 0 (0)               ; 0 (0)                     ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |mips_5_stage|regfile:rf|altsyncram:rf_rtl_1                                ; altsyncram      ; work         ;
@@ -278,272 +277,205 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
 
 
-+---------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                          ;
-+----------------------------------------------------+----------------------------------------+
-; Register name                                      ; Reason for Removal                     ;
-+----------------------------------------------------+----------------------------------------+
-; signimm_e[15..31]                                  ; Merged with rd_e[4]                    ;
-; signimm_e[14]                                      ; Merged with rd_e[3]                    ;
-; signimm_e[13]                                      ; Merged with rd_e[2]                    ;
-; signimm_e[12]                                      ; Merged with rd_e[1]                    ;
-; signimm_e[11]                                      ; Merged with rd_e[0]                    ;
-; signimm_e[10]                                      ; Merged with shamt_e[4]                 ;
-; signimm_e[9]                                       ; Merged with shamt_e[3]                 ;
-; signimm_e[8]                                       ; Merged with shamt_e[2]                 ;
-; signimm_e[7]                                       ; Merged with shamt_e[1]                 ;
-; signimm_e[6]                                       ; Merged with shamt_e[0]                 ;
-; instr_d[2..4,6..10,13,14,18,19,22..24,26,28,30,31] ; Stuck at GND due to stuck port data_in ;
-; regfile:rf|rf_rtl_0_bypass[4,6,8]                  ; Stuck at GND due to stuck port data_in ;
-; regfile:rf|rf_rtl_1_bypass[6,8]                    ; Stuck at GND due to stuck port data_in ;
-; rt_e[2,3]                                          ; Stuck at GND due to stuck port data_in ;
-; rs_e[1..3]                                         ; Stuck at GND due to stuck port data_in ;
-; signimm_e[2..4]                                    ; Stuck at GND due to stuck port data_in ;
-; shamt_e[0..4]                                      ; Stuck at GND due to stuck port data_in ;
-; rd_e[2,3]                                          ; Stuck at GND due to stuck port data_in ;
-; jal_e                                              ; Stuck at GND due to stuck port data_in ;
-; memtoreg_e                                         ; Stuck at GND due to stuck port data_in ;
-; writereg_m[2,3]                                    ; Stuck at GND due to stuck port data_in ;
-; memtoreg_m                                         ; Stuck at GND due to stuck port data_in ;
-; jal_m                                              ; Stuck at GND due to stuck port data_in ;
-; branch_e                                           ; Stuck at GND due to stuck port data_in ;
-; writereg_w[2,3]                                    ; Stuck at GND due to stuck port data_in ;
-; memtoreg_w                                         ; Stuck at GND due to stuck port data_in ;
-; readdata_w[0]                                      ; Lost fanout                            ;
-; jal_w                                              ; Stuck at GND due to stuck port data_in ;
-; pcplus4_w[0]                                       ; Lost fanout                            ;
-; pcplus4_m[0]                                       ; Lost fanout                            ;
-; readdata_w[1]                                      ; Lost fanout                            ;
-; pcplus4_w[1]                                       ; Lost fanout                            ;
-; pcplus4_m[1]                                       ; Lost fanout                            ;
-; readdata_w[2]                                      ; Lost fanout                            ;
-; pcplus4_w[2]                                       ; Lost fanout                            ;
-; pcplus4_m[2]                                       ; Lost fanout                            ;
-; readdata_w[3]                                      ; Lost fanout                            ;
-; pcplus4_w[3]                                       ; Lost fanout                            ;
-; pcplus4_m[3]                                       ; Lost fanout                            ;
-; readdata_w[4]                                      ; Lost fanout                            ;
-; pcplus4_w[4]                                       ; Lost fanout                            ;
-; pcplus4_m[4]                                       ; Lost fanout                            ;
-; readdata_w[5]                                      ; Lost fanout                            ;
-; pcplus4_w[5]                                       ; Lost fanout                            ;
-; pcplus4_m[5]                                       ; Lost fanout                            ;
-; readdata_w[6]                                      ; Lost fanout                            ;
-; pcplus4_w[6]                                       ; Lost fanout                            ;
-; pcplus4_m[6]                                       ; Lost fanout                            ;
-; readdata_w[7]                                      ; Lost fanout                            ;
-; pcplus4_w[7]                                       ; Lost fanout                            ;
-; pcplus4_m[7]                                       ; Lost fanout                            ;
-; readdata_w[8]                                      ; Lost fanout                            ;
-; pcplus4_w[8]                                       ; Lost fanout                            ;
-; pcplus4_m[8]                                       ; Lost fanout                            ;
-; readdata_w[9]                                      ; Lost fanout                            ;
-; pcplus4_w[9]                                       ; Lost fanout                            ;
-; pcplus4_m[9]                                       ; Lost fanout                            ;
-; readdata_w[10]                                     ; Lost fanout                            ;
-; pcplus4_w[10]                                      ; Lost fanout                            ;
-; pcplus4_m[10]                                      ; Lost fanout                            ;
-; readdata_w[11]                                     ; Lost fanout                            ;
-; pcplus4_w[11]                                      ; Lost fanout                            ;
-; pcplus4_m[11]                                      ; Lost fanout                            ;
-; readdata_w[12]                                     ; Lost fanout                            ;
-; pcplus4_w[12]                                      ; Lost fanout                            ;
-; pcplus4_m[12]                                      ; Lost fanout                            ;
-; readdata_w[13]                                     ; Lost fanout                            ;
-; pcplus4_w[13]                                      ; Lost fanout                            ;
-; pcplus4_m[13]                                      ; Lost fanout                            ;
-; readdata_w[14]                                     ; Lost fanout                            ;
-; pcplus4_w[14]                                      ; Lost fanout                            ;
-; pcplus4_m[14]                                      ; Lost fanout                            ;
-; readdata_w[15]                                     ; Lost fanout                            ;
-; pcplus4_w[15]                                      ; Lost fanout                            ;
-; pcplus4_m[15]                                      ; Lost fanout                            ;
-; readdata_w[16]                                     ; Lost fanout                            ;
-; pcplus4_w[16]                                      ; Lost fanout                            ;
-; pcplus4_m[16]                                      ; Lost fanout                            ;
-; readdata_w[17]                                     ; Lost fanout                            ;
-; pcplus4_w[17]                                      ; Lost fanout                            ;
-; pcplus4_m[17]                                      ; Lost fanout                            ;
-; readdata_w[18]                                     ; Lost fanout                            ;
-; pcplus4_w[18]                                      ; Lost fanout                            ;
-; pcplus4_m[18]                                      ; Lost fanout                            ;
-; readdata_w[19]                                     ; Lost fanout                            ;
-; pcplus4_w[19]                                      ; Lost fanout                            ;
-; pcplus4_m[19]                                      ; Lost fanout                            ;
-; readdata_w[20]                                     ; Lost fanout                            ;
-; pcplus4_w[20]                                      ; Lost fanout                            ;
-; pcplus4_m[20]                                      ; Lost fanout                            ;
-; readdata_w[21]                                     ; Lost fanout                            ;
-; pcplus4_w[21]                                      ; Lost fanout                            ;
-; pcplus4_m[21]                                      ; Lost fanout                            ;
-; readdata_w[22]                                     ; Lost fanout                            ;
-; pcplus4_w[22]                                      ; Lost fanout                            ;
-; pcplus4_m[22]                                      ; Lost fanout                            ;
-; readdata_w[23]                                     ; Lost fanout                            ;
-; pcplus4_w[23]                                      ; Lost fanout                            ;
-; pcplus4_m[23]                                      ; Lost fanout                            ;
-; readdata_w[24]                                     ; Lost fanout                            ;
-; pcplus4_w[24]                                      ; Lost fanout                            ;
-; pcplus4_m[24]                                      ; Lost fanout                            ;
-; readdata_w[25]                                     ; Lost fanout                            ;
-; pcplus4_w[25]                                      ; Lost fanout                            ;
-; pcplus4_m[25]                                      ; Lost fanout                            ;
-; readdata_w[26]                                     ; Lost fanout                            ;
-; pcplus4_w[26]                                      ; Lost fanout                            ;
-; pcplus4_m[26]                                      ; Lost fanout                            ;
-; readdata_w[27]                                     ; Lost fanout                            ;
-; pcplus4_w[27]                                      ; Lost fanout                            ;
-; pcplus4_m[27]                                      ; Lost fanout                            ;
-; readdata_w[28]                                     ; Lost fanout                            ;
-; pcplus4_w[28]                                      ; Lost fanout                            ;
-; pcplus4_m[28]                                      ; Lost fanout                            ;
-; readdata_w[29]                                     ; Lost fanout                            ;
-; pcplus4_w[29]                                      ; Lost fanout                            ;
-; pcplus4_m[29]                                      ; Lost fanout                            ;
-; readdata_w[30]                                     ; Lost fanout                            ;
-; pcplus4_w[30]                                      ; Lost fanout                            ;
-; pcplus4_m[30]                                      ; Lost fanout                            ;
-; readdata_w[31]                                     ; Lost fanout                            ;
-; pcplus4_w[31]                                      ; Lost fanout                            ;
-; pcplus4_m[31]                                      ; Lost fanout                            ;
-; branch_m                                           ; Stuck at GND due to stuck port data_in ;
-; zero_m                                             ; Lost fanout                            ;
-; pcplus4_e[2]                                       ; Lost fanout                            ;
-; pcplus4_d[2]                                       ; Lost fanout                            ;
-; pcplus4_e[3]                                       ; Lost fanout                            ;
-; pcplus4_d[3]                                       ; Lost fanout                            ;
-; pcplus4_e[4]                                       ; Lost fanout                            ;
-; pcplus4_d[4]                                       ; Lost fanout                            ;
-; pcplus4_e[5]                                       ; Lost fanout                            ;
-; pcplus4_d[5]                                       ; Lost fanout                            ;
-; pcplus4_e[6]                                       ; Lost fanout                            ;
-; pcplus4_d[6]                                       ; Lost fanout                            ;
-; pcplus4_e[7]                                       ; Lost fanout                            ;
-; pcplus4_d[7]                                       ; Lost fanout                            ;
-; pcplus4_e[8]                                       ; Lost fanout                            ;
-; pcplus4_d[8]                                       ; Lost fanout                            ;
-; pcplus4_e[9]                                       ; Lost fanout                            ;
-; pcplus4_d[9]                                       ; Lost fanout                            ;
-; pcplus4_e[10]                                      ; Lost fanout                            ;
-; pcplus4_d[10]                                      ; Lost fanout                            ;
-; pcplus4_e[11]                                      ; Lost fanout                            ;
-; pcplus4_d[11]                                      ; Lost fanout                            ;
-; pcplus4_e[12]                                      ; Lost fanout                            ;
-; pcplus4_d[12]                                      ; Lost fanout                            ;
-; pcplus4_e[13]                                      ; Lost fanout                            ;
-; pcplus4_d[13]                                      ; Lost fanout                            ;
-; pcplus4_e[14]                                      ; Lost fanout                            ;
-; pcplus4_d[14]                                      ; Lost fanout                            ;
-; pcplus4_e[15]                                      ; Lost fanout                            ;
-; pcplus4_d[15]                                      ; Lost fanout                            ;
-; pcplus4_e[16]                                      ; Lost fanout                            ;
-; pcplus4_d[16]                                      ; Lost fanout                            ;
-; pcplus4_e[17]                                      ; Lost fanout                            ;
-; pcplus4_d[17]                                      ; Lost fanout                            ;
-; pcplus4_e[18]                                      ; Lost fanout                            ;
-; pcplus4_d[18]                                      ; Lost fanout                            ;
-; pcplus4_e[19]                                      ; Lost fanout                            ;
-; pcplus4_d[19]                                      ; Lost fanout                            ;
-; pcplus4_e[20]                                      ; Lost fanout                            ;
-; pcplus4_d[20]                                      ; Lost fanout                            ;
-; pcplus4_e[21]                                      ; Lost fanout                            ;
-; pcplus4_d[21]                                      ; Lost fanout                            ;
-; pcplus4_e[22]                                      ; Lost fanout                            ;
-; pcplus4_d[22]                                      ; Lost fanout                            ;
-; pcplus4_e[23]                                      ; Lost fanout                            ;
-; pcplus4_d[23]                                      ; Lost fanout                            ;
-; pcplus4_e[24]                                      ; Lost fanout                            ;
-; pcplus4_d[24]                                      ; Lost fanout                            ;
-; pcplus4_e[25]                                      ; Lost fanout                            ;
-; pcplus4_d[25]                                      ; Lost fanout                            ;
-; pcplus4_e[26]                                      ; Lost fanout                            ;
-; pcplus4_d[26]                                      ; Lost fanout                            ;
-; pcplus4_e[27]                                      ; Lost fanout                            ;
-; pcplus4_d[27]                                      ; Lost fanout                            ;
-; pcplus4_e[0,28..31]                                ; Lost fanout                            ;
-; pcplus4_d[0]                                       ; Lost fanout                            ;
-; pcplus4_e[1]                                       ; Lost fanout                            ;
-; pcplus4_d[1]                                       ; Lost fanout                            ;
-; regfile:rf|rf_rtl_0_bypass[5,7]                    ; Stuck at GND due to stuck port data_in ;
-; regfile:rf|rf_rtl_1_bypass[5,7]                    ; Stuck at GND due to stuck port data_in ;
-; flopr:pcreg|q[0,1]                                 ; Stuck at GND due to stuck port data_in ;
-; memwrite_e                                         ; Stuck at GND due to stuck port data_in ;
-; memwrite_m                                         ; Stuck at GND due to stuck port data_in ;
-; rs_e[4]                                            ; Merged with rs_e[0]                    ;
-; rt_e[1]                                            ; Merged with rs_e[0]                    ;
-; rd_e[1,4]                                          ; Merged with rd_e[0]                    ;
-; signimm_e[5]                                       ; Merged with rd_e[0]                    ;
-; instr_d[5,12,15]                                   ; Merged with instr_d[11]                ;
-; instr_d[21,25]                                     ; Merged with instr_d[17]                ;
-; flopr:pcreg|q[8..31]                               ; Lost fanout                            ;
-; Total Number of Removed Registers = 276            ;                                        ;
-+----------------------------------------------------+----------------------------------------+
++-------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                        ;
++--------------------------------------------------+----------------------------------------+
+; Register name                                    ; Reason for Removal                     ;
++--------------------------------------------------+----------------------------------------+
+; signimm_e[15..31]                                ; Merged with rd_e[4]                    ;
+; signimm_e[14]                                    ; Merged with rd_e[3]                    ;
+; signimm_e[13]                                    ; Merged with rd_e[2]                    ;
+; signimm_e[12]                                    ; Merged with rd_e[1]                    ;
+; signimm_e[11]                                    ; Merged with rd_e[0]                    ;
+; signimm_e[10]                                    ; Merged with shamt_e[4]                 ;
+; signimm_e[9]                                     ; Merged with shamt_e[3]                 ;
+; signimm_e[8]                                     ; Merged with shamt_e[2]                 ;
+; signimm_e[7]                                     ; Merged with shamt_e[1]                 ;
+; signimm_e[6]                                     ; Merged with shamt_e[0]                 ;
+; instr_d[3,4,6..10,12,13,15,18,21,23,26,27,30,31] ; Stuck at GND due to stuck port data_in ;
+; regfile:rf|rf_rtl_0_bypass[2,6]                  ; Stuck at GND due to stuck port data_in ;
+; regfile:rf|rf_rtl_1_bypass[6]                    ; Stuck at GND due to stuck port data_in ;
+; rt_e[2]                                          ; Stuck at GND due to stuck port data_in ;
+; rs_e[0,2]                                        ; Stuck at GND due to stuck port data_in ;
+; signimm_e[3,4]                                   ; Stuck at GND due to stuck port data_in ;
+; shamt_e[0..4]                                    ; Stuck at GND due to stuck port data_in ;
+; rd_e[1,2,4]                                      ; Stuck at GND due to stuck port data_in ;
+; memtoreg_e                                       ; Stuck at GND due to stuck port data_in ;
+; jal_e                                            ; Stuck at GND due to stuck port data_in ;
+; writereg_m[2]                                    ; Stuck at GND due to stuck port data_in ;
+; memtoreg_m                                       ; Stuck at GND due to stuck port data_in ;
+; jal_m                                            ; Stuck at GND due to stuck port data_in ;
+; writereg_w[2]                                    ; Stuck at GND due to stuck port data_in ;
+; memtoreg_w                                       ; Stuck at GND due to stuck port data_in ;
+; readdata_w[0]                                    ; Lost fanout                            ;
+; jal_w                                            ; Stuck at GND due to stuck port data_in ;
+; pcplus4_w[0]                                     ; Lost fanout                            ;
+; pcplus4_m[0]                                     ; Lost fanout                            ;
+; readdata_w[1]                                    ; Lost fanout                            ;
+; pcplus4_w[1]                                     ; Lost fanout                            ;
+; pcplus4_m[1]                                     ; Lost fanout                            ;
+; readdata_w[2]                                    ; Lost fanout                            ;
+; pcplus4_w[2]                                     ; Lost fanout                            ;
+; pcplus4_m[2]                                     ; Lost fanout                            ;
+; readdata_w[3]                                    ; Lost fanout                            ;
+; pcplus4_w[3]                                     ; Lost fanout                            ;
+; pcplus4_m[3]                                     ; Lost fanout                            ;
+; readdata_w[4]                                    ; Lost fanout                            ;
+; pcplus4_w[4]                                     ; Lost fanout                            ;
+; pcplus4_m[4]                                     ; Lost fanout                            ;
+; readdata_w[5]                                    ; Lost fanout                            ;
+; pcplus4_w[5]                                     ; Lost fanout                            ;
+; pcplus4_m[5]                                     ; Lost fanout                            ;
+; readdata_w[6]                                    ; Lost fanout                            ;
+; pcplus4_w[6]                                     ; Lost fanout                            ;
+; pcplus4_m[6]                                     ; Lost fanout                            ;
+; readdata_w[7]                                    ; Lost fanout                            ;
+; pcplus4_w[7]                                     ; Lost fanout                            ;
+; pcplus4_m[7]                                     ; Lost fanout                            ;
+; readdata_w[8]                                    ; Lost fanout                            ;
+; pcplus4_w[8]                                     ; Lost fanout                            ;
+; pcplus4_m[8]                                     ; Lost fanout                            ;
+; readdata_w[9]                                    ; Lost fanout                            ;
+; pcplus4_w[9]                                     ; Lost fanout                            ;
+; pcplus4_m[9]                                     ; Lost fanout                            ;
+; readdata_w[10]                                   ; Lost fanout                            ;
+; pcplus4_w[10]                                    ; Lost fanout                            ;
+; pcplus4_m[10]                                    ; Lost fanout                            ;
+; readdata_w[11]                                   ; Lost fanout                            ;
+; pcplus4_w[11]                                    ; Lost fanout                            ;
+; pcplus4_m[11]                                    ; Lost fanout                            ;
+; readdata_w[12]                                   ; Lost fanout                            ;
+; pcplus4_w[12]                                    ; Lost fanout                            ;
+; pcplus4_m[12]                                    ; Lost fanout                            ;
+; readdata_w[13]                                   ; Lost fanout                            ;
+; pcplus4_w[13]                                    ; Lost fanout                            ;
+; pcplus4_m[13]                                    ; Lost fanout                            ;
+; readdata_w[14]                                   ; Lost fanout                            ;
+; pcplus4_w[14]                                    ; Lost fanout                            ;
+; pcplus4_m[14]                                    ; Lost fanout                            ;
+; readdata_w[15]                                   ; Lost fanout                            ;
+; pcplus4_w[15]                                    ; Lost fanout                            ;
+; pcplus4_m[15]                                    ; Lost fanout                            ;
+; readdata_w[16]                                   ; Lost fanout                            ;
+; pcplus4_w[16]                                    ; Lost fanout                            ;
+; pcplus4_m[16]                                    ; Lost fanout                            ;
+; readdata_w[17]                                   ; Lost fanout                            ;
+; pcplus4_w[17]                                    ; Lost fanout                            ;
+; pcplus4_m[17]                                    ; Lost fanout                            ;
+; readdata_w[18]                                   ; Lost fanout                            ;
+; pcplus4_w[18]                                    ; Lost fanout                            ;
+; pcplus4_m[18]                                    ; Lost fanout                            ;
+; readdata_w[19]                                   ; Lost fanout                            ;
+; pcplus4_w[19]                                    ; Lost fanout                            ;
+; pcplus4_m[19]                                    ; Lost fanout                            ;
+; readdata_w[20]                                   ; Lost fanout                            ;
+; pcplus4_w[20]                                    ; Lost fanout                            ;
+; pcplus4_m[20]                                    ; Lost fanout                            ;
+; readdata_w[21]                                   ; Lost fanout                            ;
+; pcplus4_w[21]                                    ; Lost fanout                            ;
+; pcplus4_m[21]                                    ; Lost fanout                            ;
+; readdata_w[22]                                   ; Lost fanout                            ;
+; pcplus4_w[22]                                    ; Lost fanout                            ;
+; pcplus4_m[22]                                    ; Lost fanout                            ;
+; readdata_w[23]                                   ; Lost fanout                            ;
+; pcplus4_w[23]                                    ; Lost fanout                            ;
+; pcplus4_m[23]                                    ; Lost fanout                            ;
+; readdata_w[24]                                   ; Lost fanout                            ;
+; pcplus4_w[24]                                    ; Lost fanout                            ;
+; pcplus4_m[24]                                    ; Lost fanout                            ;
+; readdata_w[25]                                   ; Lost fanout                            ;
+; pcplus4_w[25]                                    ; Lost fanout                            ;
+; pcplus4_m[25]                                    ; Lost fanout                            ;
+; readdata_w[26]                                   ; Lost fanout                            ;
+; pcplus4_w[26]                                    ; Lost fanout                            ;
+; pcplus4_m[26]                                    ; Lost fanout                            ;
+; readdata_w[27]                                   ; Lost fanout                            ;
+; pcplus4_w[27]                                    ; Lost fanout                            ;
+; pcplus4_m[27]                                    ; Lost fanout                            ;
+; readdata_w[28]                                   ; Lost fanout                            ;
+; pcplus4_w[28]                                    ; Lost fanout                            ;
+; pcplus4_m[28]                                    ; Lost fanout                            ;
+; readdata_w[29]                                   ; Lost fanout                            ;
+; pcplus4_w[29]                                    ; Lost fanout                            ;
+; pcplus4_m[29]                                    ; Lost fanout                            ;
+; readdata_w[30]                                   ; Lost fanout                            ;
+; pcplus4_w[30]                                    ; Lost fanout                            ;
+; pcplus4_m[30]                                    ; Lost fanout                            ;
+; readdata_w[31]                                   ; Lost fanout                            ;
+; pcplus4_w[31]                                    ; Lost fanout                            ;
+; pcplus4_m[31]                                    ; Lost fanout                            ;
+; regfile:rf|rf_rtl_0_bypass[5]                    ; Stuck at GND due to stuck port data_in ;
+; regfile:rf|rf_rtl_1_bypass[5]                    ; Stuck at GND due to stuck port data_in ;
+; pcplus4_e[0,1]                                   ; Lost fanout                            ;
+; pcplus4_d[0,1]                                   ; Lost fanout                            ;
+; flopr:pcreg|q[0,1]                               ; Lost fanout                            ;
+; rd_e[3]                                          ; Merged with rd_e[0]                    ;
+; rs_e[1]                                          ; Merged with rd_e[0]                    ;
+; signimm_e[5]                                     ; Merged with rd_e[0]                    ;
+; instr_d[5,14,22]                                 ; Merged with instr_d[11]                ;
+; instr_d[28]                                      ; Merged with instr_d[24]                ;
+; pcplus4_e[8..31]                                 ; Lost fanout                            ;
+; flopr:pcreg|q[8..31]                             ; Lost fanout                            ;
+; Total Number of Removed Registers = 226          ;                                        ;
++--------------------------------------------------+----------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                ;
-+---------------+---------------------------+------------------------------------------------------------------------------------------------+
-; Register name ; Reason for Removal        ; Registers Removed due to This Register                                                         ;
-+---------------+---------------------------+------------------------------------------------------------------------------------------------+
-; instr_d[22]   ; Stuck at GND              ; regfile:rf|rf_rtl_0_bypass[4], rs_e[1], readdata_w[0], readdata_w[1], pcplus4_w[1],            ;
-;               ; due to stuck port data_in ; pcplus4_m[1], pcplus4_w[2], pcplus4_m[2], readdata_w[7], pcplus4_w[7], pcplus4_m[7],           ;
-;               ;                           ; readdata_w[13], pcplus4_w[13], pcplus4_m[13], readdata_w[14], pcplus4_w[14], pcplus4_m[14],    ;
-;               ;                           ; readdata_w[17], pcplus4_w[17], pcplus4_m[17], readdata_w[18], pcplus4_w[18], pcplus4_m[18],    ;
-;               ;                           ; readdata_w[19], pcplus4_w[19], pcplus4_m[19], readdata_w[22], pcplus4_w[22], pcplus4_m[22],    ;
-;               ;                           ; readdata_w[23], pcplus4_w[23], pcplus4_m[23], readdata_w[24], pcplus4_w[24], pcplus4_m[24],    ;
-;               ;                           ; readdata_w[27], pcplus4_w[27], pcplus4_m[27], readdata_w[28], pcplus4_w[28], pcplus4_m[28],    ;
-;               ;                           ; readdata_w[29], pcplus4_w[29], pcplus4_m[29], readdata_w[30], pcplus4_w[30], pcplus4_m[30],    ;
-;               ;                           ; readdata_w[31], pcplus4_w[31], pcplus4_m[31], pcplus4_e[2], pcplus4_d[2], pcplus4_e[7],        ;
-;               ;                           ; pcplus4_d[7], pcplus4_e[13], pcplus4_d[13], pcplus4_e[14], pcplus4_d[14], pcplus4_e[17],       ;
-;               ;                           ; pcplus4_d[17], pcplus4_e[18], pcplus4_d[18], pcplus4_e[19], pcplus4_d[19], pcplus4_e[22],      ;
-;               ;                           ; pcplus4_d[22], pcplus4_e[23], pcplus4_d[23], pcplus4_e[24], pcplus4_d[24], pcplus4_e[27],      ;
-;               ;                           ; pcplus4_d[27], pcplus4_e[28], pcplus4_e[29], pcplus4_e[30], pcplus4_e[31]                      ;
-; instr_d[28]   ; Stuck at GND              ; branch_e, branch_m, flopr:pcreg|q[8], flopr:pcreg|q[9], flopr:pcreg|q[10],                     ;
-;               ; due to stuck port data_in ; flopr:pcreg|q[11], flopr:pcreg|q[12], flopr:pcreg|q[13], flopr:pcreg|q[14],                    ;
-;               ;                           ; flopr:pcreg|q[15], flopr:pcreg|q[16], flopr:pcreg|q[17], flopr:pcreg|q[18],                    ;
-;               ;                           ; flopr:pcreg|q[19], flopr:pcreg|q[20], flopr:pcreg|q[21], flopr:pcreg|q[22],                    ;
-;               ;                           ; flopr:pcreg|q[23], flopr:pcreg|q[24], flopr:pcreg|q[25], flopr:pcreg|q[26],                    ;
-;               ;                           ; flopr:pcreg|q[27], flopr:pcreg|q[28], flopr:pcreg|q[29], flopr:pcreg|q[30],                    ;
-;               ;                           ; flopr:pcreg|q[31]                                                                              ;
-; instr_d[19]   ; Stuck at GND              ; regfile:rf|rf_rtl_1_bypass[8], rt_e[3], writereg_m[3], writereg_w[3], pcplus4_w[0],            ;
-;               ; due to stuck port data_in ; pcplus4_m[0], readdata_w[21], pcplus4_w[21], pcplus4_m[21], zero_m, pcplus4_e[21],             ;
-;               ;                           ; pcplus4_d[21], regfile:rf|rf_rtl_0_bypass[7], regfile:rf|rf_rtl_1_bypass[7]                    ;
-; instr_d[18]   ; Stuck at GND              ; regfile:rf|rf_rtl_1_bypass[6], rt_e[2], writereg_m[2], writereg_w[2], readdata_w[20],          ;
-;               ; due to stuck port data_in ; pcplus4_w[20], pcplus4_m[20], pcplus4_e[20], pcplus4_d[20],                                    ;
-;               ;                           ; regfile:rf|rf_rtl_0_bypass[5], regfile:rf|rf_rtl_1_bypass[5]                                   ;
-; instr_d[26]   ; Stuck at GND              ; jal_e, jal_m, jal_w, pcplus4_e[0], pcplus4_d[0], pcplus4_e[1], pcplus4_d[1], flopr:pcreg|q[0], ;
-;               ; due to stuck port data_in ; flopr:pcreg|q[1], memwrite_e, memwrite_m                                                       ;
-; instr_d[24]   ; Stuck at GND              ; regfile:rf|rf_rtl_0_bypass[8], rs_e[3], readdata_w[26], pcplus4_w[26], pcplus4_m[26],          ;
-;               ; due to stuck port data_in ; pcplus4_e[26], pcplus4_d[26]                                                                   ;
-; instr_d[23]   ; Stuck at GND              ; regfile:rf|rf_rtl_0_bypass[6], rs_e[2], readdata_w[25], pcplus4_w[25], pcplus4_m[25],          ;
-;               ; due to stuck port data_in ; pcplus4_e[25], pcplus4_d[25]                                                                   ;
-; instr_d[4]    ; Stuck at GND              ; signimm_e[4], readdata_w[6], pcplus4_w[6], pcplus4_m[6], pcplus4_e[6], pcplus4_d[6]            ;
-;               ; due to stuck port data_in ;                                                                                                ;
-; instr_d[6]    ; Stuck at GND              ; shamt_e[0], readdata_w[8], pcplus4_w[8], pcplus4_m[8], pcplus4_e[8], pcplus4_d[8]              ;
-;               ; due to stuck port data_in ;                                                                                                ;
-; instr_d[7]    ; Stuck at GND              ; shamt_e[1], readdata_w[9], pcplus4_w[9], pcplus4_m[9], pcplus4_e[9], pcplus4_d[9]              ;
-;               ; due to stuck port data_in ;                                                                                                ;
-; instr_d[8]    ; Stuck at GND              ; shamt_e[2], readdata_w[10], pcplus4_w[10], pcplus4_m[10], pcplus4_e[10], pcplus4_d[10]         ;
-;               ; due to stuck port data_in ;                                                                                                ;
-; instr_d[9]    ; Stuck at GND              ; shamt_e[3], readdata_w[11], pcplus4_w[11], pcplus4_m[11], pcplus4_e[11], pcplus4_d[11]         ;
-;               ; due to stuck port data_in ;                                                                                                ;
-; instr_d[10]   ; Stuck at GND              ; shamt_e[4], readdata_w[12], pcplus4_w[12], pcplus4_m[12], pcplus4_e[12], pcplus4_d[12]         ;
-;               ; due to stuck port data_in ;                                                                                                ;
-; instr_d[13]   ; Stuck at GND              ; rd_e[2], readdata_w[15], pcplus4_w[15], pcplus4_m[15], pcplus4_e[15], pcplus4_d[15]            ;
-;               ; due to stuck port data_in ;                                                                                                ;
-; instr_d[14]   ; Stuck at GND              ; rd_e[3], readdata_w[16], pcplus4_w[16], pcplus4_m[16], pcplus4_e[16], pcplus4_d[16]            ;
-;               ; due to stuck port data_in ;                                                                                                ;
-; instr_d[3]    ; Stuck at GND              ; readdata_w[5], pcplus4_w[5], pcplus4_m[5], pcplus4_e[5], pcplus4_d[5]                          ;
-;               ; due to stuck port data_in ;                                                                                                ;
-; instr_d[2]    ; Stuck at GND              ; readdata_w[4], pcplus4_w[4], pcplus4_m[4], pcplus4_e[4], pcplus4_d[4]                          ;
-;               ; due to stuck port data_in ;                                                                                                ;
-; signimm_e[3]  ; Stuck at GND              ; readdata_w[3], pcplus4_w[3], pcplus4_m[3], pcplus4_e[3], pcplus4_d[3]                          ;
-;               ; due to stuck port data_in ;                                                                                                ;
-; memtoreg_e    ; Stuck at GND              ; memtoreg_m, memtoreg_w                                                                         ;
-;               ; due to stuck port data_in ;                                                                                                ;
-; signimm_e[2]  ; Stuck at GND              ; readdata_w[2]                                                                                  ;
-;               ; due to stuck port data_in ;                                                                                                ;
-+---------------+---------------------------+------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                             ;
++---------------+---------------------------+---------------------------------------------------------------------------------------------+
+; Register name ; Reason for Removal        ; Registers Removed due to This Register                                                      ;
++---------------+---------------------------+---------------------------------------------------------------------------------------------+
+; instr_d[21]   ; Stuck at GND              ; regfile:rf|rf_rtl_0_bypass[2], rs_e[0], readdata_w[0], readdata_w[1], pcplus4_w[1],         ;
+;               ; due to stuck port data_in ; pcplus4_m[1], pcplus4_w[2], pcplus4_m[2], readdata_w[7], pcplus4_w[7], pcplus4_m[7],        ;
+;               ;                           ; readdata_w[13], pcplus4_w[13], pcplus4_m[13], readdata_w[16], pcplus4_w[16], pcplus4_m[16], ;
+;               ;                           ; readdata_w[18], pcplus4_w[18], pcplus4_m[18], readdata_w[19], pcplus4_w[19], pcplus4_m[19], ;
+;               ;                           ; readdata_w[21], pcplus4_w[21], pcplus4_m[21], readdata_w[22], pcplus4_w[22], pcplus4_m[22], ;
+;               ;                           ; readdata_w[23], pcplus4_w[23], pcplus4_m[23], readdata_w[24], pcplus4_w[24], pcplus4_m[24], ;
+;               ;                           ; readdata_w[26], pcplus4_w[26], pcplus4_m[26], readdata_w[27], pcplus4_w[27], pcplus4_m[27], ;
+;               ;                           ; readdata_w[28], pcplus4_w[28], pcplus4_m[28], readdata_w[29], pcplus4_w[29], pcplus4_m[29], ;
+;               ;                           ; readdata_w[30], pcplus4_w[30], pcplus4_m[30], readdata_w[31], pcplus4_w[31], pcplus4_m[31]  ;
+; instr_d[23]   ; Stuck at GND              ; regfile:rf|rf_rtl_0_bypass[6], rs_e[2], pcplus4_w[0], pcplus4_m[0], readdata_w[25],         ;
+;               ; due to stuck port data_in ; pcplus4_w[25], pcplus4_m[25], flopr:pcreg|q[0], flopr:pcreg|q[1], flopr:pcreg|q[8],         ;
+;               ;                           ; flopr:pcreg|q[9], flopr:pcreg|q[10], flopr:pcreg|q[11], flopr:pcreg|q[12],                  ;
+;               ;                           ; flopr:pcreg|q[13], flopr:pcreg|q[14], flopr:pcreg|q[15], flopr:pcreg|q[16],                 ;
+;               ;                           ; flopr:pcreg|q[17], flopr:pcreg|q[18], flopr:pcreg|q[19], flopr:pcreg|q[20],                 ;
+;               ;                           ; flopr:pcreg|q[21], flopr:pcreg|q[22], flopr:pcreg|q[23], flopr:pcreg|q[24],                 ;
+;               ;                           ; flopr:pcreg|q[25], flopr:pcreg|q[26], flopr:pcreg|q[27], flopr:pcreg|q[28],                 ;
+;               ;                           ; flopr:pcreg|q[29], flopr:pcreg|q[30], flopr:pcreg|q[31]                                     ;
+; signimm_e[3]  ; Stuck at GND              ; pcplus4_d[0], pcplus4_d[1], pcplus4_e[8], pcplus4_e[9], pcplus4_e[10], pcplus4_e[11],       ;
+;               ; due to stuck port data_in ; pcplus4_e[12], pcplus4_e[13], pcplus4_e[14], pcplus4_e[15], pcplus4_e[16], pcplus4_e[17],   ;
+;               ;                           ; pcplus4_e[18], pcplus4_e[19], pcplus4_e[20], pcplus4_e[21], pcplus4_e[22], pcplus4_e[23],   ;
+;               ;                           ; pcplus4_e[24], pcplus4_e[25], pcplus4_e[26], pcplus4_e[27], pcplus4_e[28], pcplus4_e[29],   ;
+;               ;                           ; pcplus4_e[30], pcplus4_e[31]                                                                ;
+; instr_d[18]   ; Stuck at GND              ; regfile:rf|rf_rtl_1_bypass[6], rt_e[2], writereg_m[2], writereg_w[2], readdata_w[4],        ;
+;               ; due to stuck port data_in ; pcplus4_w[4], pcplus4_m[4], readdata_w[20], pcplus4_w[20], pcplus4_m[20],                   ;
+;               ;                           ; regfile:rf|rf_rtl_0_bypass[5], regfile:rf|rf_rtl_1_bypass[5]                                ;
+; instr_d[26]   ; Stuck at GND              ; jal_e, jal_m, jal_w, pcplus4_e[0], pcplus4_e[1]                                             ;
+;               ; due to stuck port data_in ;                                                                                             ;
+; instr_d[4]    ; Stuck at GND              ; signimm_e[4], readdata_w[6], pcplus4_w[6], pcplus4_m[6]                                     ;
+;               ; due to stuck port data_in ;                                                                                             ;
+; instr_d[6]    ; Stuck at GND              ; shamt_e[0], readdata_w[8], pcplus4_w[8], pcplus4_m[8]                                       ;
+;               ; due to stuck port data_in ;                                                                                             ;
+; instr_d[7]    ; Stuck at GND              ; shamt_e[1], readdata_w[9], pcplus4_w[9], pcplus4_m[9]                                       ;
+;               ; due to stuck port data_in ;                                                                                             ;
+; instr_d[8]    ; Stuck at GND              ; shamt_e[2], readdata_w[10], pcplus4_w[10], pcplus4_m[10]                                    ;
+;               ; due to stuck port data_in ;                                                                                             ;
+; instr_d[9]    ; Stuck at GND              ; shamt_e[3], readdata_w[11], pcplus4_w[11], pcplus4_m[11]                                    ;
+;               ; due to stuck port data_in ;                                                                                             ;
+; instr_d[10]   ; Stuck at GND              ; shamt_e[4], readdata_w[12], pcplus4_w[12], pcplus4_m[12]                                    ;
+;               ; due to stuck port data_in ;                                                                                             ;
+; instr_d[12]   ; Stuck at GND              ; rd_e[1], readdata_w[14], pcplus4_w[14], pcplus4_m[14]                                       ;
+;               ; due to stuck port data_in ;                                                                                             ;
+; instr_d[13]   ; Stuck at GND              ; rd_e[2], readdata_w[15], pcplus4_w[15], pcplus4_m[15]                                       ;
+;               ; due to stuck port data_in ;                                                                                             ;
+; instr_d[15]   ; Stuck at GND              ; rd_e[4], readdata_w[17], pcplus4_w[17], pcplus4_m[17]                                       ;
+;               ; due to stuck port data_in ;                                                                                             ;
+; instr_d[3]    ; Stuck at GND              ; readdata_w[5], pcplus4_w[5], pcplus4_m[5]                                                   ;
+;               ; due to stuck port data_in ;                                                                                             ;
+; memtoreg_e    ; Stuck at GND              ; memtoreg_m, memtoreg_w, readdata_w[3]                                                       ;
+;               ; due to stuck port data_in ;                                                                                             ;
+; pcplus4_w[3]  ; Lost Fanouts              ; pcplus4_m[3]                                                                                ;
++---------------+---------------------------+---------------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -551,8 +483,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 271   ;
-; Number of registers using Synchronous Clear  ; 77    ;
+; Total registers                              ; 299   ;
+; Number of registers using Synchronous Clear  ; 82    ;
 ; Number of registers using Synchronous Load   ; 64    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
@@ -660,15 +592,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |mips_5_stage|writereg_m[1]                 ;
-; 3:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; Yes        ; |mips_5_stage|flopr:pcreg|q[24]             ;
-; 3:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; Yes        ; |mips_5_stage|flopr:pcreg|q[18]             ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |mips_5_stage|writereg_m[1]                 ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |mips_5_stage|writereg_m[0]                 ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |mips_5_stage|alucontrol_e[0]               ;
-; 7:1                ; 31 bits   ; 124 LEs       ; 93 LEs               ; 31 LEs                 ; Yes        ; |mips_5_stage|aluout_m[28]                  ;
 ; 5:1                ; 32 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |mips_5_stage|srca_e[5]                     ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |mips_5_stage|srcb_e[1]                     ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |mips_5_stage|mux3:forward_b_mux|Selector5  ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |mips_5_stage|mux3:forward_a_mux|Selector31 ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |mips_5_stage|srcb_e[8]                     ;
+; 6:1                ; 31 bits   ; 124 LEs       ; 62 LEs               ; 62 LEs                 ; No         ; |mips_5_stage|alu:alu|Mux27                 ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |mips_5_stage|mux3:forward_b_mux|Selector29 ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |mips_5_stage|mux3:forward_a_mux|Selector4  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
 
 
@@ -737,16 +668,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+---------------------------------------+
 ; WIDTH          ; 5     ; Signed Integer                        ;
 +----------------+-------+---------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: mux2:jal_writereg_mux ;
-+----------------+-------+-------------------------------------------+
-; Parameter Name ; Value ; Type                                      ;
-+----------------+-------+-------------------------------------------+
-; WIDTH          ; 5     ; Signed Integer                            ;
-+----------------+-------+-------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -923,13 +844,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------------------+--------------------------------+
 
 
-+---------------------------------------------------+
-; Port Connectivity Checks: "mux2:jal_writereg_mux" ;
-+------+-------+----------+-------------------------+
-; Port ; Type  ; Severity ; Details                 ;
-+------+-------+----------+-------------------------+
-; d1   ; Input ; Info     ; Stuck at VCC            ;
-+------+-------+----------+-------------------------+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "hazardunit:hu"                                                                         ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; flush_d ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -941,30 +862,39 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------+--------+----------+------------------------+
 
 
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "controller:c"                                                                                                                                    ;
++-----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                                                                                                      ;
++-----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; zeroNzero ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++-----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 67                          ;
-; cycloneiii_ff         ; 271                         ;
-;     SCLR              ; 13                          ;
+; cycloneiii_ff         ; 299                         ;
+;     SCLR              ; 18                          ;
 ;     SCLR SLD          ; 64                          ;
-;     plain             ; 194                         ;
-; cycloneiii_lcell_comb ; 554                         ;
-;     arith             ; 68                          ;
-;         2 data inputs ; 6                           ;
-;         3 data inputs ; 62                          ;
-;     normal            ; 486                         ;
+;     plain             ; 217                         ;
+; cycloneiii_lcell_comb ; 593                         ;
+;     arith             ; 73                          ;
+;         2 data inputs ; 8                           ;
+;         3 data inputs ; 65                          ;
+;     normal            ; 520                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 2                           ;
-;         2 data inputs ; 86                          ;
-;         3 data inputs ; 168                         ;
-;         4 data inputs ; 229                         ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 106                         ;
+;         3 data inputs ; 186                         ;
+;         4 data inputs ; 226                         ;
 ; cycloneiii_ram_block  ; 64                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 11.20                       ;
-; Average LUT depth     ; 5.83                        ;
+; Max LUT depth         ; 16.80                       ;
+; Average LUT depth     ; 9.05                        ;
 +-----------------------+-----------------------------+
 
 
@@ -983,47 +913,51 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sun Jul 13 21:10:15 2025
+    Info: Processing started: Tue Jul 15 00:17:11 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off mips_5_stage -c mips_5_stage
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
 Info (12021): Found 12 design units, including 12 entities, in source file mips_5_stage.sv
-    Info (12023): Found entity 1: mips_5_stage File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 6
-    Info (12023): Found entity 2: hazardunit File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 264
-    Info (12023): Found entity 3: controller File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 301
-    Info (12023): Found entity 4: maindec File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 307
-    Info (12023): Found entity 5: aludec File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 325
-    Info (12023): Found entity 6: regfile File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 344
-    Info (12023): Found entity 7: alu File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 351
-    Info (12023): Found entity 8: imem File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 366
-    Info (12023): Found entity 9: dmem File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 372
-    Info (12023): Found entity 10: flopr File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 384
-    Info (12023): Found entity 11: mux2 File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 397
-    Info (12023): Found entity 12: mux3 File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 402
+    Info (12023): Found entity 1: mips_5_stage File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 5
+    Info (12023): Found entity 2: hazardunit File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 271
+    Info (12023): Found entity 3: controller File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 314
+    Info (12023): Found entity 4: maindec File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 320
+    Info (12023): Found entity 5: aludec File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 338
+    Info (12023): Found entity 6: regfile File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 357
+    Info (12023): Found entity 7: alu File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 364
+    Info (12023): Found entity 8: imem File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 379
+    Info (12023): Found entity 9: dmem File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 385
+    Info (12023): Found entity 10: flopr File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 392
+    Info (12023): Found entity 11: mux2 File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 405
+    Info (12023): Found entity 12: mux3 File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 410
 Info (12021): Found 1 design units, including 1 entities, in source file tb_mips.sv
-    Info (12023): Found entity 1: tb_mips_forwarding File: C:/Users/alexa/Documents/GitHub/mips_5_stage/tb_mips.sv Line: 3
+    Info (12023): Found entity 1: tb_mips_beq File: C:/Users/alexa/Documents/GitHub/mips_5_stage/tb_mips.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file tb_mips_load_word.sv
+    Info (12023): Found entity 1: tb_mips_load_word File: C:/Users/alexa/Documents/GitHub/mips_5_stage/tb_mips_load_word.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file tb_mips_branch.sv
+    Info (12023): Found entity 1: tb_mips_branch File: C:/Users/alexa/Documents/GitHub/mips_5_stage/tb_mips_branch.sv Line: 3
 Info (12127): Elaborating entity "mips_5_stage" for the top level hierarchy
-Info (12128): Elaborating entity "flopr" for hierarchy "flopr:pcreg" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 62
-Info (12128): Elaborating entity "imem" for hierarchy "imem:imem" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 64
-Warning (10850): Verilog HDL warning at mips_5_stage.sv(368): number of words (4) in memory file does not match the number of elements in the address range [0:63] File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 368
-Warning (10030): Net "RAM.data_a" at mips_5_stage.sv(367) has no driver or initial value, using a default initial value '0' File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 367
-Warning (10030): Net "RAM.waddr_a" at mips_5_stage.sv(367) has no driver or initial value, using a default initial value '0' File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 367
-Warning (10030): Net "RAM.we_a" at mips_5_stage.sv(367) has no driver or initial value, using a default initial value '0' File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 367
-Info (12128): Elaborating entity "controller" for hierarchy "controller:c" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 101
-Info (12128): Elaborating entity "maindec" for hierarchy "controller:c|maindec:md" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 303
-Info (12128): Elaborating entity "aludec" for hierarchy "controller:c|aludec:ad" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 304
-Info (12128): Elaborating entity "regfile" for hierarchy "regfile:rf" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 112
-Info (12128): Elaborating entity "mux3" for hierarchy "mux3:forward_a_mux" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 153
-Info (10264): Verilog HDL Case Statement information at mips_5_stage.sv(405): all case item expressions in this case statement are onehot File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 405
-Info (12128): Elaborating entity "mux2" for hierarchy "mux2:srcb_mux" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 156
-Info (12128): Elaborating entity "alu" for hierarchy "alu:alu" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 166
-Info (12128): Elaborating entity "mux2" for hierarchy "mux2:writereg_mux" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 168
-Info (12128): Elaborating entity "dmem" for hierarchy "dmem:dmem" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 202
-Info (12128): Elaborating entity "hazardunit" for hierarchy "hazardunit:hu" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 256
+Info (12128): Elaborating entity "flopr" for hierarchy "flopr:pcreg" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 69
+Info (12128): Elaborating entity "imem" for hierarchy "imem:imem" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 71
+Warning (10850): Verilog HDL warning at mips_5_stage.sv(381): number of words (11) in memory file does not match the number of elements in the address range [0:63] File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 381
+Warning (10030): Net "RAM.data_a" at mips_5_stage.sv(380) has no driver or initial value, using a default initial value '0' File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 380
+Warning (10030): Net "RAM.waddr_a" at mips_5_stage.sv(380) has no driver or initial value, using a default initial value '0' File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 380
+Warning (10030): Net "RAM.we_a" at mips_5_stage.sv(380) has no driver or initial value, using a default initial value '0' File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 380
+Info (12128): Elaborating entity "controller" for hierarchy "controller:c" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 105
+Info (12128): Elaborating entity "maindec" for hierarchy "controller:c|maindec:md" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 316
+Info (12128): Elaborating entity "aludec" for hierarchy "controller:c|aludec:ad" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 317
+Info (12128): Elaborating entity "regfile" for hierarchy "regfile:rf" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 116
+Info (12128): Elaborating entity "mux3" for hierarchy "mux3:forward_a_mux" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 156
+Info (10264): Verilog HDL Case Statement information at mips_5_stage.sv(413): all case item expressions in this case statement are onehot File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 413
+Info (12128): Elaborating entity "mux2" for hierarchy "mux2:srcb_mux" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 159
+Info (12128): Elaborating entity "alu" for hierarchy "alu:alu" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 169
+Info (12128): Elaborating entity "mux2" for hierarchy "mux2:writereg_mux" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 171
+Info (12128): Elaborating entity "dmem" for hierarchy "dmem:dmem" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 209
+Info (12128): Elaborating entity "hazardunit" for hierarchy "hazardunit:hu" File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 265
 Warning (276020): Inferred RAM node "regfile:rf|rf_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
 Warning (276020): Inferred RAM node "regfile:rf|rf_rtl_1" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
 Info (276014): Found 1 instances of uninferred RAM logic
-    Info (276007): RAM logic "dmem:dmem|RAM" is uninferred due to asynchronous read logic File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 373
+    Info (276007): RAM logic "dmem:dmem|RAM" is uninferred due to asynchronous read logic File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 386
 Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/alexa/Documents/GitHub/mips_5_stage/db/mips_5_stage.ram0_imem_37c714.hdl.mif" contains "don't care" values -- overwriting them with 0s
 Info (19000): Inferred 2 megafunctions from design logic
     Info (276029): Inferred altsyncram megafunction from the following design logic: "regfile:rf|rf_rtl_0" 
@@ -1090,22 +1024,21 @@ Info (12133): Instantiated megafunction "regfile:rf|altsyncram:rf_rtl_1" with th
     Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
     Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
     Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "memwrite_out" is stuck at GND File: C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv Line: 10
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 181 registers lost all their fanouts during netlist optimizations.
+Info (17049): 150 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/alexa/Documents/GitHub/mips_5_stage/output_files/mips_5_stage.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 766 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 812 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 65 output pins
-    Info (21061): Implemented 635 logic cells
+    Info (21061): Implemented 681 logic cells
     Info (21064): Implemented 64 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 10 warnings
-    Info: Peak virtual memory: 4833 megabytes
-    Info: Processing ended: Sun Jul 13 21:10:22 2025
-    Info: Elapsed time: 00:00:07
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 9 warnings
+    Info: Peak virtual memory: 4846 megabytes
+    Info: Processing ended: Tue Jul 15 00:17:19 2025
+    Info: Elapsed time: 00:00:08
     Info: Total CPU time (on all processors): 00:00:14
 
 

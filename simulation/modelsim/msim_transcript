@@ -12,7 +12,7 @@
 # 
 # vlog -sv -work work +incdir+C:/Users/alexa/Documents/GitHub/mips_5_stage {C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 21:10:48 on Jul 13,2025
+# Start time: 00:17:44 on Jul 15,2025
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/alexa/Documents/GitHub/mips_5_stage" C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv 
 # -- Compiling module mips_5_stage
 # -- Compiling module hazardunit
@@ -29,7 +29,7 @@
 # 
 # Top level modules:
 # 	mips_5_stage
-# End time: 21:10:48 on Jul 13,2025, Elapsed time: 0:00:00
+# End time: 00:17:44 on Jul 15,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 pwd
@@ -41,8 +41,8 @@ pwd
 # C:/Users/alexa/Documents/GitHub/mips_5_stage
 vlog *.sv
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 21:10:59 on Jul 13,2025
-# vlog -reportprogress 300 mips_5_stage.sv tb_mips.sv 
+# Start time: 00:18:13 on Jul 15,2025
+# vlog -reportprogress 300 mips_5_stage.sv tb_mips.sv tb_mips_branch.sv tb_mips_load_word.sv 
 # -- Compiling module mips_5_stage
 # -- Compiling module hazardunit
 # -- Compiling module controller
@@ -55,26 +55,21 @@ vlog *.sv
 # -- Compiling module flopr
 # -- Compiling module mux2
 # -- Compiling module mux3
-# -- Compiling module tb_mips_forwarding
+# -- Compiling module tb_mips_beq
+# -- Compiling module tb_mips_branch
+# -- Compiling module tb_mips_load_word
 # 
 # Top level modules:
-# 	tb_mips_forwarding
-# End time: 21:10:59 on Jul 13,2025, Elapsed time: 0:00:00
+# 	tb_mips_beq
+# 	tb_mips_branch
+# 	tb_mips_load_word
+# End time: 00:18:14 on Jul 15,2025, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-vsim tb_mips_fowarding
-# vsim tb_mips_fowarding 
-# Start time: 21:11:10 on Jul 13,2025
-# ** Error: (vsim-3170) Could not find 'tb_mips_fowarding'.
-#         Searched libraries:
-#             C:/Users/alexa/Documents/GitHub/mips_5_stage/work
-# Error loading design
-# End time: 21:11:10 on Jul 13,2025, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 0
-vsim tb_mips_forwarding
-# vsim tb_mips_forwarding 
-# Start time: 21:11:20 on Jul 13,2025
+vsim tb_mips_branch
+# vsim tb_mips_branch 
+# Start time: 00:18:22 on Jul 15,2025
 # Loading sv_std.std
-# Loading work.tb_mips_forwarding
+# Loading work.tb_mips_branch
 # Loading work.mips_5_stage
 # Loading work.flopr
 # Loading work.imem
@@ -87,48 +82,47 @@ vsim tb_mips_forwarding
 # Loading work.alu
 # Loading work.dmem
 # Loading work.hazardunit
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'c'.  Expected 13, found 12.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_mips_branch/dut/c File: mips_5_stage.sv Line: 92
+# ** Warning: (vsim-3722) mips_5_stage.sv(92): [TFMPC] - Missing connection for port 'zeroNzero'.
 run -all
-# Valores Iniciais: $s1=10, $s2=20
-# 
-# ====================================================================================================
-# --- Iniciando teste de Forwarding por          20 ciclos ---
-# ====================================================================================================
-# Ciclo | PC_IF      | Instr_ID   | FwdA | FwdB | ALU_SrcA_EX| ALU_SrcB_EX| ALUOut_MEM | Result_WB
-# ----------------------------------------------------------------------------------------------------
-#     2 | 00000004 | 20110001 |  00  |  00  | 00000000 | 00000000 | 00000000   | 00000000
-#     3 | 00000008 | 22320002 |  00  |  00  | 00000000 | 00000001 | 00000000   | 00000000
-#     4 | 0000000c | 02329820 |  10  |  00  | 00000001 | 00000002 | 00000001   | 00000000
-#     5 | 00000010 | 08000003 |  01  |  10  | 00000001 | 00000003 | 00000003   | 00000001
-#     6 | 0000000c | xxxxxxxx |  00  |  00  | 00000000 | 00000000 | 00000004   | 00000003
-#     7 | xxxxxxxx | 08000003 |  00  |  00  | xxxxxxxx | xxxxxxxx | 00000000   | 00000004
-#     8 | xxxxxxxx | 08000003 |  00  |  00  | 00000000 | 00000000 | xxxxxxxx   | 00000000
-#     9 | 000000Xc | xxxxxxxx |  00  |  00  | 00000000 | 00000000 | 00000000   | xxxxxxxx
-#    10 | xxxxxxxx | xxxxxxxx |  00  |  00  | xxxxxxxx | xxxxxxxx | 00000000   | 00000000
-#    11 | xxxxxxxx | xxxxxxxx |  00  |  00  | xxxxxxxx | xxxxxxxx | xxxxxxxx   | 00000000
-#    12 | xxxxxxxx | xxxxxxxx |  00  |  00  | xxxxxxxx | xxxxxxxx | xxxxxxxx   | xxxxxxxx
-#    13 | xxxxxxxx | xxxxxxxx |  00  |  00  | xxxxxxxx | xxxxxxxx | xxxxxxxx   | xxxxxxxx
-#    14 | xxxxxxxx | xxxxxxxx |  00  |  00  | xxxxxxxx | xxxxxxxx | xxxxxxxx   | xxxxxxxx
-#    15 | xxxxxxxx | xxxxxxxx |  00  |  00  | xxxxxxxx | xxxxxxxx | xxxxxxxx   | xxxxxxxx
-#    16 | xxxxxxxx | xxxxxxxx |  00  |  00  | xxxxxxxx | xxxxxxxx | xxxxxxxx   | xxxxxxxx
-#    17 | xxxxxxxx | xxxxxxxx |  00  |  00  | xxxxxxxx | xxxxxxxx | xxxxxxxx   | xxxxxxxx
-#    18 | xxxxxxxx | xxxxxxxx |  00  |  00  | xxxxxxxx | xxxxxxxx | xxxxxxxx   | xxxxxxxx
-#    19 | xxxxxxxx | xxxxxxxx |  00  |  00  | xxxxxxxx | xxxxxxxx | xxxxxxxx   | xxxxxxxx
-#    20 | xxxxxxxx | xxxxxxxx |  00  |  00  | xxxxxxxx | xxxxxxxx | xxxxxxxx   | xxxxxxxx
-#    21 | xxxxxxxx | xxxxxxxx |  00  |  00  | xxxxxxxx | xxxxxxxx | xxxxxxxx   | xxxxxxxx
+# Ciclo | PC_IF      | Instr_ID   | ALUOut_MEM | Result_WB
+# ------------------------------------------------------------------
+#     2 | 00000004 | 20080001 | 00000000   | 00000000
+#     3 | 00000008 | 20120002 | 00000000   | 00000000
+#     4 | 0000000c | 02484822 | 00000001   | 00000000
+#     5 | 00000010 | 11120004 | 00000002   | 00000001
+#     6 | 00000014 | 11090005 | 00000001   | 00000002
+#     7 | 00000018 | 20100001 | ffffffff   | 00000001
+#     8 | 00000028 | 22100001 | 00000000   | ffffffff
+#     9 | 0000002c | 20110005 | 00000000   | 00000000
+#    10 | 00000030 | xxxxxxxx | xxxxxxxx   | 00000000
+#    11 | xxxxxxxx | xxxxxxxx | 00000005   | xxxxxxxx
+#    12 | xxxxxxxx | xxxxxxxx | xxxxxxxx   | 00000005
+#    13 | xxxxxxxx | xxxxxxxx | xxxxxxxx   | xxxxxxxx
+#    14 | xxxxxxxx | xxxxxxxx | xxxxxxxx   | xxxxxxxx
+#    15 | xxxxxxxx | xxxxxxxx | xxxxxxxx   | xxxxxxxx
+#    16 | xxxxxxxx | xxxxxxxx | xxxxxxxx   | xxxxxxxx
+#    17 | xxxxxxxx | xxxxxxxx | xxxxxxxx   | xxxxxxxx
+#    18 | xxxxxxxx | xxxxxxxx | xxxxxxxx   | xxxxxxxx
+#    19 | xxxxxxxx | xxxxxxxx | xxxxxxxx   | xxxxxxxx
+#    20 | xxxxxxxx | xxxxxxxx | xxxxxxxx   | xxxxxxxx
+#    21 | xxxxxxxx | xxxxxxxx | xxxxxxxx   | xxxxxxxx
 # 
 # =======================================================
 # --- Simulação finalizada ---
-# Valor final em $s0 (reg 16):          x
-# Valor final em $s1 (reg 17):          1
-# Valor final em $s2 (reg 18):          3
-# Valor final em $s3 (reg 19):          4
-# 
-# >>> FALHA: Valores incorretos nos registradores!
-# =======================================================
-# 
-# ** Note: $finish    : tb_mips.sv(81)
-#    Time: 215 ns  Iteration: 1  Instance: /tb_mips_forwarding
+# Valores finais esperados para o teste de desvio:
+# $t0=1, $t1=1, $s2=2, $s0=0 (desvio pulou), $s1=5 (alvo do desvio)
+# -------------------------------------------------------
+# Valores finais medidos nos registradores:
+# Valor final em $t0 (R8) :          1
+# Valor final em $t1 (R9) :          1
+# Valor final em $s0 (R16):          x
+# Valor final em $s1 (R17):          5
+# Valor final em $s2 (R18):          2
+# ** Note: $finish    : tb_mips_branch.sv(69)
+#    Time: 215 ns  Iteration: 1  Instance: /tb_mips_branch
 # 1
-# Break in Module tb_mips_forwarding at tb_mips.sv line 81
-# End time: 21:29:26 on Jul 13,2025, Elapsed time: 0:18:06
-# Errors: 0, Warnings: 0
+# Break in Module tb_mips_branch at tb_mips_branch.sv line 69
+# End time: 00:18:42 on Jul 15,2025, Elapsed time: 0:00:20
+# Errors: 0, Warnings: 2
