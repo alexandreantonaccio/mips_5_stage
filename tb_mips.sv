@@ -1,7 +1,5 @@
 `timescale 1ns/1ps
-
 module tb_mips_beq();
-
     logic clk, reset;
     logic [31:0] writedata, dataadr;
     logic memwrite;
@@ -12,8 +10,7 @@ module tb_mips_beq();
         .writedata_out(writedata),
         .dataadr_out(dataadr),
         .memwrite_out(memwrite)
-    );
-	 
+    ); 
     always #5 clk = ~clk;
     initial begin
         clk = 0;
@@ -23,7 +20,6 @@ module tb_mips_beq();
         #1;
         $display("Ciclo | PC_IF      | Instr_ID   | FwdA | FwdB | ALU_SrcA_EX| ALU_SrcB_EX| ALUOut_MEM | Result_WB");
         $display("----------------------------------------------------------------------------------------------------");
-
         repeat (MAX_CYCLES) begin
             @(posedge clk);
             $display("%5d | %h | %h |  %b  |  %b  | %h | %h | %h   | %h",
@@ -38,9 +34,6 @@ module tb_mips_beq();
                 dut.result_w           
             );
         end
-
-        // --- VERIFICAÇÃO FINAL ---
-        $display("\n=======================================================");
         $display("--- Simulação finalizada ---");
         $display("Valor final em $t0 : %d", dut.rf.rf[8]);
         $display("Valor final em $t1 : %d", dut.rf.rf[9]);
@@ -53,5 +46,4 @@ module tb_mips_beq();
 		  $display("Valor final em mem : %d", dut.dmem.RAM[9]);
         $finish;
     end
-
 endmodule

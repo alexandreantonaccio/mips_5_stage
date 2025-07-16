@@ -65,7 +65,6 @@ module mips_5_stage(
         if (reset) begin
             instr_d <= 32'b0;
             pcplus4_d <= 32'b0;
-        // O flush do IF/ID não é mais necessário para desvios, pois a decisão é em EX
         end else if (~(stall_f | stall_d)) begin
             instr_d <= instr_f;
             pcplus4_d <= pc_f + 4;
@@ -157,7 +156,6 @@ module mips_5_stage(
             writereg_m <= 0;
             pcplus4_m <= 0;
         end else begin
-            // Sinais de desvio (branch_m, zero_m) não são mais necessários aqui
             {regwrite_m, memwrite_m, memtoreg_m, jal_m} <= {regwrite_e, memwrite_e, memtoreg_e, jal_e};
             aluout_m <= aluout_e;
             srcb_m <= srcb_forwarded_e;

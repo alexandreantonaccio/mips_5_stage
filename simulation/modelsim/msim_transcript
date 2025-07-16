@@ -10,140 +10,139 @@
 # Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vlog -sv -work work +incdir+C:/Users/alexandre/Documents/Github/mips_5_stage {C:/Users/alexandre/Documents/Github/mips_5_stage/mips_5_stage.sv}
+# vlog -sv -work work +incdir+C:/Users/alexa/Documents/GitHub/mips_5_stage {C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:56:23 on Jul 15,2025
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/alexandre/Documents/Github/mips_5_stage" C:/Users/alexandre/Documents/Github/mips_5_stage/mips_5_stage.sv 
+# Start time: 23:51:48 on Jul 15,2025
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/alexa/Documents/GitHub/mips_5_stage" C:/Users/alexa/Documents/GitHub/mips_5_stage/mips_5_stage.sv 
 # -- Compiling module mips_5_stage
 # 
 # Top level modules:
 # 	mips_5_stage
-# End time: 16:56:23 on Jul 15,2025, Elapsed time: 0:00:00
+# End time: 23:51:49 on Jul 15,2025, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/Users/alexandre/Documents/Github/mips_5_stage {C:/Users/alexandre/Documents/Github/mips_5_stage/hazardunit.sv}
+# vlog -sv -work work +incdir+C:/Users/alexa/Documents/GitHub/mips_5_stage {C:/Users/alexa/Documents/GitHub/mips_5_stage/hazardunit.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:56:23 on Jul 15,2025
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/alexandre/Documents/Github/mips_5_stage" C:/Users/alexandre/Documents/Github/mips_5_stage/hazardunit.sv 
+# Start time: 23:51:49 on Jul 15,2025
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/alexa/Documents/GitHub/mips_5_stage" C:/Users/alexa/Documents/GitHub/mips_5_stage/hazardunit.sv 
 # -- Compiling module hazardunit
 # 
 # Top level modules:
 # 	hazardunit
-# End time: 16:56:23 on Jul 15,2025, Elapsed time: 0:00:00
+# End time: 23:51:49 on Jul 15,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/Users/alexandre/Documents/Github/mips_5_stage {C:/Users/alexandre/Documents/Github/mips_5_stage/controller.sv}
+# vlog -sv -work work +incdir+C:/Users/alexa/Documents/GitHub/mips_5_stage {C:/Users/alexa/Documents/GitHub/mips_5_stage/controller.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:56:23 on Jul 15,2025
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/alexandre/Documents/Github/mips_5_stage" C:/Users/alexandre/Documents/Github/mips_5_stage/controller.sv 
+# Start time: 23:51:49 on Jul 15,2025
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/alexa/Documents/GitHub/mips_5_stage" C:/Users/alexa/Documents/GitHub/mips_5_stage/controller.sv 
 # -- Compiling module controller
 # 
 # Top level modules:
 # 	controller
-# End time: 16:56:24 on Jul 15,2025, Elapsed time: 0:00:01
+# End time: 23:51:49 on Jul 15,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/Users/alexandre/Documents/Github/mips_5_stage {C:/Users/alexandre/Documents/Github/mips_5_stage/maindec.sv}
+# vlog -sv -work work +incdir+C:/Users/alexa/Documents/GitHub/mips_5_stage {C:/Users/alexa/Documents/GitHub/mips_5_stage/maindec.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:56:24 on Jul 15,2025
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/alexandre/Documents/Github/mips_5_stage" C:/Users/alexandre/Documents/Github/mips_5_stage/maindec.sv 
+# Start time: 23:51:49 on Jul 15,2025
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/alexa/Documents/GitHub/mips_5_stage" C:/Users/alexa/Documents/GitHub/mips_5_stage/maindec.sv 
 # -- Compiling module maindec
 # 
 # Top level modules:
 # 	maindec
-# End time: 16:56:24 on Jul 15,2025, Elapsed time: 0:00:00
+# End time: 23:51:49 on Jul 15,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/Users/alexandre/Documents/Github/mips_5_stage {C:/Users/alexandre/Documents/Github/mips_5_stage/aludec.sv}
+# vlog -sv -work work +incdir+C:/Users/alexa/Documents/GitHub/mips_5_stage {C:/Users/alexa/Documents/GitHub/mips_5_stage/aludec.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:56:24 on Jul 15,2025
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/alexandre/Documents/Github/mips_5_stage" C:/Users/alexandre/Documents/Github/mips_5_stage/aludec.sv 
+# Start time: 23:51:49 on Jul 15,2025
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/alexa/Documents/GitHub/mips_5_stage" C:/Users/alexa/Documents/GitHub/mips_5_stage/aludec.sv 
 # -- Compiling module aludec
 # 
 # Top level modules:
 # 	aludec
-# End time: 16:56:24 on Jul 15,2025, Elapsed time: 0:00:00
+# End time: 23:51:49 on Jul 15,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/Users/alexandre/Documents/Github/mips_5_stage {C:/Users/alexandre/Documents/Github/mips_5_stage/regfile.sv}
+# vlog -sv -work work +incdir+C:/Users/alexa/Documents/GitHub/mips_5_stage {C:/Users/alexa/Documents/GitHub/mips_5_stage/regfile.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:56:24 on Jul 15,2025
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/alexandre/Documents/Github/mips_5_stage" C:/Users/alexandre/Documents/Github/mips_5_stage/regfile.sv 
+# Start time: 23:51:49 on Jul 15,2025
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/alexa/Documents/GitHub/mips_5_stage" C:/Users/alexa/Documents/GitHub/mips_5_stage/regfile.sv 
 # -- Compiling module regfile
 # 
 # Top level modules:
 # 	regfile
-# End time: 16:56:24 on Jul 15,2025, Elapsed time: 0:00:00
+# End time: 23:51:49 on Jul 15,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/Users/alexandre/Documents/Github/mips_5_stage {C:/Users/alexandre/Documents/Github/mips_5_stage/alu.sv}
+# vlog -sv -work work +incdir+C:/Users/alexa/Documents/GitHub/mips_5_stage {C:/Users/alexa/Documents/GitHub/mips_5_stage/alu.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:56:24 on Jul 15,2025
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/alexandre/Documents/Github/mips_5_stage" C:/Users/alexandre/Documents/Github/mips_5_stage/alu.sv 
+# Start time: 23:51:49 on Jul 15,2025
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/alexa/Documents/GitHub/mips_5_stage" C:/Users/alexa/Documents/GitHub/mips_5_stage/alu.sv 
 # -- Compiling module alu
 # 
 # Top level modules:
 # 	alu
-# End time: 16:56:24 on Jul 15,2025, Elapsed time: 0:00:00
+# End time: 23:51:49 on Jul 15,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/Users/alexandre/Documents/Github/mips_5_stage {C:/Users/alexandre/Documents/Github/mips_5_stage/dmem.sv}
+# vlog -sv -work work +incdir+C:/Users/alexa/Documents/GitHub/mips_5_stage {C:/Users/alexa/Documents/GitHub/mips_5_stage/dmem.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:56:24 on Jul 15,2025
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/alexandre/Documents/Github/mips_5_stage" C:/Users/alexandre/Documents/Github/mips_5_stage/dmem.sv 
+# Start time: 23:51:49 on Jul 15,2025
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/alexa/Documents/GitHub/mips_5_stage" C:/Users/alexa/Documents/GitHub/mips_5_stage/dmem.sv 
 # -- Compiling module dmem
 # 
 # Top level modules:
 # 	dmem
-# End time: 16:56:25 on Jul 15,2025, Elapsed time: 0:00:01
+# End time: 23:51:49 on Jul 15,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/Users/alexandre/Documents/Github/mips_5_stage {C:/Users/alexandre/Documents/Github/mips_5_stage/flopr.sv}
+# vlog -sv -work work +incdir+C:/Users/alexa/Documents/GitHub/mips_5_stage {C:/Users/alexa/Documents/GitHub/mips_5_stage/flopr.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:56:25 on Jul 15,2025
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/alexandre/Documents/Github/mips_5_stage" C:/Users/alexandre/Documents/Github/mips_5_stage/flopr.sv 
+# Start time: 23:51:49 on Jul 15,2025
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/alexa/Documents/GitHub/mips_5_stage" C:/Users/alexa/Documents/GitHub/mips_5_stage/flopr.sv 
 # -- Compiling module flopr
 # 
 # Top level modules:
 # 	flopr
-# End time: 16:56:25 on Jul 15,2025, Elapsed time: 0:00:00
+# End time: 23:51:49 on Jul 15,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/Users/alexandre/Documents/Github/mips_5_stage {C:/Users/alexandre/Documents/Github/mips_5_stage/mux2.sv}
+# vlog -sv -work work +incdir+C:/Users/alexa/Documents/GitHub/mips_5_stage {C:/Users/alexa/Documents/GitHub/mips_5_stage/mux2.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:56:25 on Jul 15,2025
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/alexandre/Documents/Github/mips_5_stage" C:/Users/alexandre/Documents/Github/mips_5_stage/mux2.sv 
+# Start time: 23:51:49 on Jul 15,2025
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/alexa/Documents/GitHub/mips_5_stage" C:/Users/alexa/Documents/GitHub/mips_5_stage/mux2.sv 
 # -- Compiling module mux2
 # 
 # Top level modules:
 # 	mux2
-# End time: 16:56:25 on Jul 15,2025, Elapsed time: 0:00:00
+# End time: 23:51:49 on Jul 15,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/Users/alexandre/Documents/Github/mips_5_stage {C:/Users/alexandre/Documents/Github/mips_5_stage/mux3.sv}
+# vlog -sv -work work +incdir+C:/Users/alexa/Documents/GitHub/mips_5_stage {C:/Users/alexa/Documents/GitHub/mips_5_stage/mux3.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:56:25 on Jul 15,2025
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/alexandre/Documents/Github/mips_5_stage" C:/Users/alexandre/Documents/Github/mips_5_stage/mux3.sv 
+# Start time: 23:51:50 on Jul 15,2025
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/alexa/Documents/GitHub/mips_5_stage" C:/Users/alexa/Documents/GitHub/mips_5_stage/mux3.sv 
 # -- Compiling module mux3
 # 
 # Top level modules:
 # 	mux3
-# End time: 16:56:25 on Jul 15,2025, Elapsed time: 0:00:00
+# End time: 23:51:50 on Jul 15,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/Users/alexandre/Documents/Github/mips_5_stage {C:/Users/alexandre/Documents/Github/mips_5_stage/imem.sv}
+# vlog -sv -work work +incdir+C:/Users/alexa/Documents/GitHub/mips_5_stage {C:/Users/alexa/Documents/GitHub/mips_5_stage/imem.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:56:25 on Jul 15,2025
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/alexandre/Documents/Github/mips_5_stage" C:/Users/alexandre/Documents/Github/mips_5_stage/imem.sv 
+# Start time: 23:51:50 on Jul 15,2025
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/alexa/Documents/GitHub/mips_5_stage" C:/Users/alexa/Documents/GitHub/mips_5_stage/imem.sv 
 # -- Compiling module imem
 # 
 # Top level modules:
 # 	imem
-# End time: 16:56:26 on Jul 15,2025, Elapsed time: 0:00:01
+# End time: 23:51:50 on Jul 15,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 pwd
-# C:/Users/alexandre/Documents/Github/mips_5_stage/simulation/modelsim
+# C:/Users/alexa/Documents/GitHub/mips_5_stage/simulation/modelsim
 cd ..
 # reading C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini
 cd ..
 pwd
-# C:/Users/alexandre/Documents/Github/mips_5_stage
-vlib work
-# ** Warning: (vlib-34) Library already exists at "work".
+# C:/Users/alexa/Documents/GitHub/mips_5_stage
 vlog *.sv
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:58:03 on Jul 15,2025
-# vlog -reportprogress 300 alu.sv aludec.sv controller.sv dmem.sv flopr.sv hazardunit.sv imem.sv maindec.sv mips_5_stage.sv mux2.sv mux3.sv regfile.sv signext.sv sl2.sv tb_mips.sv tb_mips_branch.sv tb_mips_load_word.sv 
+# Start time: 23:52:06 on Jul 15,2025
+# vlog -reportprogress 300 adder.sv alu.sv aludec.sv controller.sv dmem.sv flopr.sv hazardunit.sv imem.sv maindec.sv mips_5_stage.sv mux2.sv mux3.sv regfile.sv signext.sv sl2.sv tb_mips.sv tb_mips_branch.sv tb_mips_load_word.sv 
+# -- Compiling module adder
 # -- Compiling module alu
 # -- Compiling module aludec
 # -- Compiling module controller
@@ -163,16 +162,17 @@ vlog *.sv
 # -- Compiling module tb_mips_load_word
 # 
 # Top level modules:
+# 	adder
 # 	signext
 # 	sl2
 # 	tb_mips_beq
 # 	tb_mips_branch
 # 	tb_mips_load_word
-# End time: 16:58:04 on Jul 15,2025, Elapsed time: 0:00:01
+# End time: 23:52:07 on Jul 15,2025, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 vsim tb_mips_branch
 # vsim tb_mips_branch 
-# Start time: 16:58:13 on Jul 15,2025
+# Start time: 23:52:17 on Jul 15,2025
 # Loading sv_std.std
 # Loading work.tb_mips_branch
 # Loading work.mips_5_stage
@@ -188,8 +188,8 @@ vsim tb_mips_branch
 # Loading work.dmem
 # Loading work.hazardunit
 # ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'c'.  Expected 13, found 12.
-#    Time: 0 ps  Iteration: 0  Instance: /tb_mips_branch/dut/c File: mips_5_stage.sv Line: 76
-# ** Warning: (vsim-3722) mips_5_stage.sv(76): [TFMPC] - Missing connection for port 'zeroNzero'.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_mips_branch/dut/c File: mips_5_stage.sv Line: 75
+# ** Warning: (vsim-3722) mips_5_stage.sv(75): [TFMPC] - Missing connection for port 'zeroNzero'.
 run -all
 # Ciclo | PC_IF      | Instr_ID   | ALUOut_MEM | Result_WB
 # ------------------------------------------------------------------
@@ -229,5 +229,5 @@ run -all
 #    Time: 215 ns  Iteration: 1  Instance: /tb_mips_branch
 # 1
 # Break in Module tb_mips_branch at tb_mips_branch.sv line 46
-# End time: 16:58:36 on Jul 15,2025, Elapsed time: 0:00:23
+# End time: 00:20:59 on Jul 16,2025, Elapsed time: 0:28:42
 # Errors: 0, Warnings: 2

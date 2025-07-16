@@ -15,7 +15,7 @@ module hazardunit(
             forward_a_e = 2'b00;
     end
 
-    always_comb begin // Fowarding em EX e MEM para palavra A
+    always_comb begin // Fowarding em EX e MEM para palavra B
         if (rt_e != 0 && rt_e == writereg_m && regwrite_m)
             forward_b_e = 2'b10;
         else if (rt_e != 0 && rt_e == writereg_w && regwrite_w)
@@ -29,7 +29,7 @@ module hazardunit(
     assign stall_f = lw_stall;
     assign stall_d = lw_stall;
 
-    // Logica de Flush robusta
+    // Logica de Flush 
     assign flush_e = lw_stall || pcsrc_e;
     assign flush_d = pcsrc_e;
 

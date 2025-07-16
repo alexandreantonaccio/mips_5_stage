@@ -9,30 +9,54 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/alexa/Documents/GitHub/mips_5_stage
-valu
+vadder
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1752613084
+Z2 !s110 1752637927
 !i10b 1
-!s100 JDGS=imZ?dJX;IPmgW6X92
+!s100 FhHe@OgckhS:Cg:V54:180
 Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
-IBS7bO2ogFc:AkPjKn:bf=0
+IM:A6<1f0?=`Pjc2CF@bWh2
 Z4 VDg1SIo80bB@j0V0VzS_@n1
 S1
-Z5 dC:/Users/alexandre/Documents/Github/mips_5_stage
-w1752611332
-8alu.sv
-Falu.sv
-!i122 17
-L0 1 14
-Z6 OV;L;2020.1;71
+R0
+Z5 w1752630245
+8adder.sv
+Fadder.sv
+!i122 18
+Z6 L0 1 5
+Z7 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z7 !s108 1752613083.000000
-!s107 tb_mips_load_word.sv|tb_mips_branch.sv|tb_mips.sv|sl2.sv|signext.sv|regfile.sv|mux3.sv|mux2.sv|mips_5_stage.sv|maindec.sv|imem.sv|hazardunit.sv|flopr.sv|dmem.sv|controller.sv|aludec.sv|alu.sv|
-Z8 !s90 -reportprogress|300|alu.sv|aludec.sv|controller.sv|dmem.sv|flopr.sv|hazardunit.sv|imem.sv|maindec.sv|mips_5_stage.sv|mux2.sv|mux3.sv|regfile.sv|signext.sv|sl2.sv|tb_mips.sv|tb_mips_branch.sv|tb_mips_load_word.sv|
+Z8 !s108 1752637926.000000
+!s107 tb_mips_load_word.sv|tb_mips_branch.sv|tb_mips.sv|sl2.sv|signext.sv|regfile.sv|mux3.sv|mux2.sv|mips_5_stage.sv|maindec.sv|imem.sv|hazardunit.sv|flopr.sv|dmem.sv|controller.sv|aludec.sv|alu.sv|adder.sv|
+Z9 !s90 -reportprogress|300|adder.sv|alu.sv|aludec.sv|controller.sv|dmem.sv|flopr.sv|hazardunit.sv|imem.sv|maindec.sv|mips_5_stage.sv|mux2.sv|mux3.sv|regfile.sv|signext.sv|sl2.sv|tb_mips.sv|tb_mips_branch.sv|tb_mips_load_word.sv|
 !i113 1
-Z9 tCvgOpt 0
+Z10 tCvgOpt 0
+valu
+R1
+R2
+!i10b 1
+!s100 JDGS=imZ?dJX;IPmgW6X92
+R3
+IBS7bO2ogFc:AkPjKn:bf=0
+R4
+S1
+R0
+R5
+8alu.sv
+Falu.sv
+!i122 18
+L0 1 14
+R7
+r1
+!s85 0
+31
+R8
+Z11 !s107 tb_mips_load_word.sv|tb_mips_branch.sv|tb_mips.sv|sl2.sv|signext.sv|regfile.sv|mux3.sv|mux2.sv|mips_5_stage.sv|maindec.sv|imem.sv|hazardunit.sv|flopr.sv|dmem.sv|controller.sv|aludec.sv|alu.sv|adder.sv|
+R9
+!i113 1
+R10
 valudec
 R1
 R2
@@ -42,21 +66,21 @@ R3
 I26ma@LORl;G7YjDXZH;n83
 R4
 S1
+R0
 R5
-w1752611283
 8aludec.sv
 Faludec.sv
-!i122 17
+!i122 18
 L0 1 18
-R6
+R7
 r1
 !s85 0
 31
-R7
-Z10 !s107 tb_mips_load_word.sv|tb_mips_branch.sv|tb_mips.sv|sl2.sv|signext.sv|regfile.sv|mux3.sv|mux2.sv|mips_5_stage.sv|maindec.sv|imem.sv|hazardunit.sv|flopr.sv|dmem.sv|controller.sv|aludec.sv|alu.sv|
 R8
-!i113 1
+R11
 R9
+!i113 1
+R10
 vcontroller
 R1
 R2
@@ -66,21 +90,21 @@ R3
 IPhlE2K7QTJEnAgE?;7=_`1
 R4
 S1
+R0
 R5
-w1752611224
 8controller.sv
 Fcontroller.sv
-!i122 17
-Z11 L0 1 5
+!i122 18
 R6
+R7
 r1
 !s85 0
 31
-R7
-R10
 R8
-!i113 1
+R11
 R9
+!i113 1
+R10
 vdmem
 R1
 R2
@@ -90,21 +114,21 @@ R3
 IHIeRR<>9nh80NAV6]3I6d0
 R4
 S1
+R0
 R5
-w1752611375
 8dmem.sv
 Fdmem.sv
-!i122 17
-R11
+!i122 18
 R6
+R7
 r1
 !s85 0
 31
-R7
-R10
 R8
-!i113 1
+R11
 R9
+!i113 1
+R10
 vflopr
 R1
 R2
@@ -114,21 +138,21 @@ R3
 IXzkE4`@]>2jLFYWGahz8k0
 R4
 S1
+R0
 R5
-w1752611400
 8flopr.sv
 Fflopr.sv
-!i122 17
+!i122 18
 L0 1 12
-R6
+R7
 r1
 !s85 0
 31
-R7
-R10
 R8
-!i113 1
+R11
 R9
+!i113 1
+R10
 vhazardunit
 R1
 R2
@@ -138,21 +162,21 @@ R3
 IAJOVHcd[ab>F=f_]Ve@TH1
 R4
 S1
-R5
-w1752612404
+R0
+Z12 w1752637637
 8hazardunit.sv
 Fhazardunit.sv
-!i122 17
+!i122 18
 L0 1 36
-R6
+R7
 r1
 !s85 0
 31
-R7
-R10
 R8
-!i113 1
+R11
 R9
+!i113 1
+R10
 vimem
 R1
 R2
@@ -162,21 +186,21 @@ R3
 IleYl2g<5k8R]Ta=5TPl`a2
 R4
 S1
+R0
 R5
-w1752611351
 8imem.sv
 Fimem.sv
-!i122 17
-R11
+!i122 18
 R6
+R7
 r1
 !s85 0
 31
-R7
-R10
 R8
-!i113 1
+R11
 R9
+!i113 1
+R10
 vmaindec
 R1
 R2
@@ -186,45 +210,45 @@ R3
 IhZ[YcM@bFY15Kc^YggK7e3
 R4
 S1
+R0
 R5
-w1752611254
 8maindec.sv
 Fmaindec.sv
-!i122 17
+!i122 18
 L0 1 17
-R6
+R7
 r1
 !s85 0
 31
-R7
-R10
 R8
-!i113 1
+R11
 R9
+!i113 1
+R10
 vmips_5_stage
 R1
 R2
 !i10b 1
-!s100 bWV_?aB]=X_JFb:k;JIHO3
+!s100 CbHJAC696C]Plk`Y3Fb??1
 R3
-IgM;GofEWIWC^j[X=?1Uic0
+IRSN>UH;eIQKbkf[F4O9^`0
 R4
 S1
-R5
-w1752611949
+R0
+w1752637636
 8mips_5_stage.sv
 Fmips_5_stage.sv
-!i122 17
-L0 3 222
-R6
+!i122 18
+L0 3 220
+R7
 r1
 !s85 0
 31
-R7
-R10
 R8
-!i113 1
+R11
 R9
+!i113 1
+R10
 vmux2
 R1
 R2
@@ -234,21 +258,21 @@ R3
 IRKfHb?SCWmRBV1=?0lnh]3
 R4
 S1
+R0
 R5
-w1752611422
 8mux2.sv
 Fmux2.sv
-!i122 17
+!i122 18
 L0 1 4
-R6
+R7
 r1
 !s85 0
 31
-R7
-R10
 R8
-!i113 1
+R11
 R9
+!i113 1
+R10
 vmux3
 R1
 R2
@@ -258,21 +282,21 @@ R3
 I:OK=L`E5MgWo72OFNf9U^3
 R4
 S1
+R0
 R5
-w1752611447
 8mux3.sv
 Fmux3.sv
-!i122 17
+!i122 18
 L0 1 9
-R6
+R7
 r1
 !s85 0
 31
-R7
-R10
 R8
-!i113 1
+R11
 R9
+!i113 1
+R10
 vregfile
 R1
 R2
@@ -282,21 +306,21 @@ R3
 Iho=6Ug@NSb@cLe>gBkc2b2
 R4
 S1
+R0
 R5
-w1752611303
 8regfile.sv
 Fregfile.sv
-!i122 17
-Z12 L0 1 6
-R6
+!i122 18
+Z13 L0 1 6
+R7
 r1
 !s85 0
 31
-R7
-R10
 R8
-!i113 1
+R11
 R9
+!i113 1
+R10
 vsignext
 R1
 R2
@@ -306,21 +330,21 @@ R3
 I2m_FbC_[OfTP2CM<BcF7d1
 R4
 S1
+R0
 R5
-w1752612751
 8signext.sv
 Fsignext.sv
-!i122 17
-R11
+!i122 18
 R6
+R7
 r1
 !s85 0
 31
-R7
-R10
 R8
-!i113 1
+R11
 R9
+!i113 1
+R10
 vsl2
 R1
 R2
@@ -330,21 +354,21 @@ R3
 IX=2b7YKB6];]07:CGlKK;1
 R4
 S1
+R0
 R5
-w1752612784
 8sl2.sv
 Fsl2.sv
-!i122 17
-R12
-R6
+!i122 18
+R13
+R7
 r1
 !s85 0
 31
-R7
-R10
 R8
-!i113 1
+R11
 R9
+!i113 1
+R10
 vtb_mips
 R1
 !s110 1752359992
@@ -356,43 +380,43 @@ R4
 S1
 R0
 w1752359450
-Z13 8tb_mips.sv
-Z14 Ftb_mips.sv
+Z14 8tb_mips.sv
+Z15 Ftb_mips.sv
 !i122 2
 L0 3 78
-R6
+R7
 r1
 !s85 0
 31
 !s108 1752359992.000000
-Z15 !s107 tb_mips.sv|mips_5_stage.sv|
-Z16 !s90 -reportprogress|300|mips_5_stage.sv|tb_mips.sv|
+Z16 !s107 tb_mips.sv|mips_5_stage.sv|
+Z17 !s90 -reportprogress|300|mips_5_stage.sv|tb_mips.sv|
 !i113 1
-R9
+R10
 vtb_mips_beq
 R1
 R2
 !i10b 1
-!s100 o`KOK542CRiBlS>C]3`P72
+!s100 6dEclnZ<OVEFVXWCV<BYm0
 R3
-ITODVD5;W;VVH8?80VzLSU0
+Ia<4:<ol?WT4kd`<`Wf^dT2
 R4
 S1
-R5
-w1752612436
-R13
+R0
+R12
 R14
-!i122 17
-L0 3 55
-R6
+R15
+!i122 18
+L0 2 48
+R7
 r1
 !s85 0
 31
-R7
-R10
 R8
-!i113 1
+R11
 R9
+!i113 1
+R10
 vtb_mips_branch
 R1
 R2
@@ -402,21 +426,21 @@ R3
 IAkKOA8:eNgFCMI<ceFam^3
 R4
 S1
+R0
 R5
-w1752612332
 8tb_mips_branch.sv
 Ftb_mips_branch.sv
-!i122 17
+!i122 18
 L0 3 47
-R6
+R7
 r1
 !s85 0
 31
-R7
-R10
 R8
-!i113 1
+R11
 R9
+!i113 1
+R10
 vtb_mips_forwarding
 R1
 !s110 1752455459
@@ -428,19 +452,19 @@ R4
 S1
 R0
 w1752455413
-R13
 R14
+R15
 !i122 7
 L0 3 82
-R6
+R7
 r1
 !s85 0
 31
 !s108 1752455459.000000
-R15
 R16
+R17
 !i113 1
-R9
+R10
 vtb_mips_jal
 R1
 !s110 1752360644
@@ -452,19 +476,19 @@ R4
 S1
 R0
 w1752360608
-R13
 R14
+R15
 !i122 5
 L0 3 75
-R6
+R7
 r1
 !s85 0
 31
 !s108 1752360644.000000
-R15
 R16
+R17
 !i113 1
-R9
+R10
 vtb_mips_load_word
 R1
 R2
@@ -474,18 +498,18 @@ R3
 I4TX1aA`HdkI01ZD<gi=BP1
 R4
 S1
+R0
 R5
-w1752612256
 8tb_mips_load_word.sv
 Ftb_mips_load_word.sv
-!i122 17
+!i122 18
 L0 3 54
-R6
+R7
 r1
 !s85 0
 31
-R7
-R10
 R8
-!i113 1
+R11
 R9
+!i113 1
+R10
